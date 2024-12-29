@@ -1,0 +1,257 @@
+!SceneAsset
+Id: b4153c1f-5599-4b10-b8a9-f70208af5e95
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+ChildrenIds: []
+Offset: {X: 0.0, Y: 0.0, Z: 0.0}
+Hierarchy:
+    RootParts:
+        - ref!! 909a0039-9021-4e9a-9bb6-6dd21eda05e2
+        - ref!! 2cccca08-cd42-405e-844d-2e926770d2dd
+        - ref!! 84f2219d-47e5-4a42-a9fe-eb4ab49aa375
+        - ref!! a207d127-8039-48ff-89e9-351aa776f624
+        - ref!! edb54b6a-8d01-47e0-bdb2-3dea4c479066
+        - ref!! 805c833a-4eb1-4737-94a6-681a5a66a4e2
+        - ref!! 0db9e3ae-c918-46b3-b921-b8e95a82e782
+        - ref!! 6b4f1127-d05e-4680-ad46-f4cf19d0517d
+        - ref!! acc21d17-a5d6-4d6a-a307-a5dc1339deab
+    Parts:
+        -   Entity:
+                Id: 0db9e3ae-c918-46b3-b921-b8e95a82e782
+                Name: Grid
+                Components:
+                    28d33f0b2cd4a9e92d20d60ba8706d5e: !TransformComponent
+                        Id: 8eb4ef42-b25e-4b11-af10-d2708fa8b3ab
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    94bb0482e834563c0a7a4a4107563e55: !TurnBasedStrategyCourse.GridSystemVisualSingle,TurnBasedStrategyCourse
+                        Id: 42bfeeb9-b462-4779-891a-bacc3aaf0de9
+                    5efb874136eb66a3a11be02215b886f6: !TurnBasedStrategyCourse.UnitActionSystem,TurnBasedStrategyCourse
+                        Id: 9b91bb61-c9b5-4030-99b2-4c583f4b4e9a
+                        SelectedUnit: ref!! 6b4f1127-d05e-4680-ad46-f4cf19d0517d
+                        camera: ref!! 789cab3f-21a2-413f-9b91-9beac145486f
+        -   Entity:
+                Id: 2cccca08-cd42-405e-844d-2e926770d2dd
+                Name: Directional light
+                Components:
+                    9ca1ec1a4b180d447670eb155a9a42b2: !TransformComponent
+                        Id: 75b2f64b-ec12-4b5f-85cf-ec12d146c54d
+                        Position: {X: 0.0, Y: 2.0, Z: 0.0}
+                        Rotation: {X: 1.131334E-08, Y: -0.9659258, Z: -0.25881904, W: -4.222196E-08}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    5de24980ca15570bcbbb126b74aeeae7: !LightComponent
+                        Id: 987b5a0a-bc51-4133-a6af-b6c209f75957
+                        Type: !LightDirectional
+                            Color: !ColorRgbProvider
+                                Value: {R: 1.0, G: 1.0, B: 1.0}
+                            Shadow:
+                                Enabled: true
+                                Filter: !LightShadowMapFilterTypePcf
+                                    FilterSize: Filter5x5
+                                Size: Large
+                                DepthRange: {}
+                                PartitionMode: !LightDirectionalShadowMap.PartitionLogarithmic {}
+                                ComputeTransmittance: false
+                                BiasParameters: {}
+                        Intensity: 20.0
+        -   Entity:
+                Id: 6b4f1127-d05e-4680-ad46-f4cf19d0517d
+                Name: Unit
+                Components:
+                    33479119eec0a44cdc64b3b41858808c: !TransformComponent
+                        Id: b9926a6d-42ea-4e94-a1b3-716c6c78a58e
+                        Position*: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    c3ca2892eca9bb6194f5b70b357d8910: !ModelComponent
+                        Id: 0644cca3-4487-4411-bcad-29846050baf1
+                        Model: f68ea240-695a-4de5-9884-60d77544fcd6:Models/mannequinModel
+                        Materials: {}
+                    77e1d54d0a69bae41768bf0e8063c669: !TurnBasedStrategyCourse.MoveAction,TurnBasedStrategyCourse
+                        Id: 3642d1d8-7bfa-4f52-a08a-1322e61fca31
+                        unit: ref!! 6b4f1127-d05e-4680-ad46-f4cf19d0517d
+                        maxMoveDistance: 1
+                    b78c1736a8df1918cbc10efffed658b3: !TurnBasedStrategyCourse.Unit,TurnBasedStrategyCourse
+                        Id: fd431ab7-f132-4917-a8b7-cd5f19987e28
+                        Priority: 1
+                        character: ref!! 6b4f1127-d05e-4680-ad46-f4cf19d0517d
+                    ac801a9c71bafc9cd401e5520d4288c0: !CharacterComponent
+                        Id: 62e3795c-0a51-4798-9c65-1098a7cb14a3
+                        CollisionGroup: CustomFilter1
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        FallSpeed: 10.0
+                        MaxSlope: {Radians: 0.7853982}
+                        JumpSpeed: 5.0
+                        Gravity: {X: 0.0, Y: -10.0, Z: 0.0}
+                        ColliderShapes:
+                            b7acf705f6b69b9e0677ce87badd8d15: !CapsuleColliderShapeDesc
+                                Length: 1.2
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 1.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    3e36e27883e965731c5a03c27f062da8: !TurnBasedStrategyCourse.SpinAction,TurnBasedStrategyCourse
+                        Id: c912ecd1-1149-4f7a-bdff-5d7fa4940bd0
+                        unit: ref!! 6b4f1127-d05e-4680-ad46-f4cf19d0517d
+            Base:
+                BasePartAsset: 61bbd4aa-ebd6-4764-b4f1-5b55525ac7d1:Unit
+                BasePartId: 1fecd12a-7036-48e1-a6cb-43044ff09302
+                InstanceId: 37c12abb-f919-4ad5-8473-697495a0a789
+        -   Entity:
+                Id: 805c833a-4eb1-4737-94a6-681a5a66a4e2
+                Name: Coin
+                Components:
+                    71e40a38e9885118ac1df7b2aa9d5a40: !TransformComponent
+                        Id: d9735836-8a6a-49a9-8a75-7a1505fb8d61
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    c4de907a419d277625b3282f2a21f881: !ModelComponent
+                        Id: fee28891-de69-49cf-aa55-d3566a768366
+                        Model: 10601f56-3dd5-4728-a371-063121f8373b:Models/CoinSilver
+                        Materials:
+                            14934a36952a431d7d0331ecebf35f68~0: 1b322c92-9a75-4b10-bd65-8104175c5f00:Materials/BodyWhite
+        -   Entity:
+                Id: 84f2219d-47e5-4a42-a9fe-eb4ab49aa375
+                Name: Skybox
+                Components:
+                    87156158cbd638e4a9ab6361afeaba1d: !TransformComponent
+                        Id: db9749b6-86be-4576-abcd-413f5fdf4c20
+                        Position: {X: 0.0, Y: 2.0, Z: -2.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    383e51029352142890ba5cf5a328f026: !BackgroundComponent
+                        Id: 450f245d-3ddd-4062-9bc3-473cca181973
+                        Texture: 685734f7-5f64-4612-891f-452f2019cfa5:Skybox texture
+                    d154c42cce7c23a385bf317e64e8bb0d: !LightComponent
+                        Id: f87274ef-3742-4431-abc6-012f63e8af7d
+                        Type: !LightSkybox
+                            Skybox: 5ea56449-20ef-4886-96e4-b575749e584d:Skybox
+        -   Entity:
+                Id: 909a0039-9021-4e9a-9bb6-6dd21eda05e2
+                Name: Camera
+                Components:
+                    959c6719a6c10934d206169a25cb393c: !TransformComponent
+                        Id: 29a01ef6-3fc2-4ae1-955f-e856a781f8cd
+                        Position: {X: 4.5196643, Y: 8.214962, Z: -6.8471775}
+                        Rotation: {X: 0.024200007, Y: 0.9543489, Z: 0.28659862, W: -0.08058396}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    04f4cd8272f866ecb989813d44f4bef1: !CameraComponent
+                        Id: 789cab3f-21a2-413f-9b91-9beac145486f
+                        Name: null
+                        Projection: Perspective
+                        Slot: 7e2dcbf9-fffe-40cb-bb23-f1426fcaeb8d
+                    74564c251b9aec5e52e2040b59bdbb9a: !TurnBasedStrategyCourse.MouseWorld,TurnBasedStrategyCourse
+                        Id: aaf7601a-a198-43b6-a730-c30bd29feb5e
+                        CollideWith: CustomFilter1, CustomFilter6, CustomFilter7, CustomFilter8, CustomFilter9, CustomFilter10
+                        CollideWithTriggers: true
+        -   Entity:
+                Id: a207d127-8039-48ff-89e9-351aa776f624
+                Name: Ground
+                Components:
+                    8672e69baec2706ab00b58ef2f04ac2e: !TransformComponent
+                        Id: 3652ee30-715d-41a7-8271-92e27b08a059
+                        Position: {X: 0.0, Y: -0.01, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 5.0, Y: 5.0, Z: 5.0}
+                        Children: {}
+                    aca667898843849ad33ac5a15cac1de3: !ModelComponent
+                        Id: b73dfb94-9037-4497-acdd-c7703cfa9377
+                        Model: 7599cc15-2aa9-4448-a948-a10819104117:Ground
+                        Materials:
+                            cb5ee30c0eeeb3985f37afa650d0be5f~0: ba13e600-e1c8-4ba7-b66d-aa0e1489e02e:Materials/board1B
+                    35b7e76bdbb0279ba20dc3c3cbf1cf38: !StaticColliderComponent
+                        Id: b900d2b9-dbfa-4fef-94ca-041a69485a2d
+                        CanSleep: true
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        IsTrigger: false
+                        AlwaysUpdateNaviMeshCache: false
+                        ColliderShapes:
+                            94716e16408092dacedba490156dd266: !StaticPlaneColliderShapeDesc
+                                Normal: {X: 0.0, Y: 1.0, Z: 0.0}
+                                Offset: 0.0
+        -   Entity:
+                Id: acc21d17-a5d6-4d6a-a307-a5dc1339deab
+                Name*: Unit2
+                Components:
+                    33479119eec0a44cdc64b3b41858808c: !TransformComponent
+                        Id: e17c3e87-5fde-4200-a42b-3e17f63829d9
+                        Position*: {X: 2.0, Y: 0.0, Z: 2.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    c3ca2892eca9bb6194f5b70b357d8910: !ModelComponent
+                        Id: 0a3d2308-b913-4bef-84c3-3789131cdb54
+                        Model: f68ea240-695a-4de5-9884-60d77544fcd6:Models/mannequinModel
+                        Materials: {}
+                    77e1d54d0a69bae41768bf0e8063c669: !TurnBasedStrategyCourse.MoveAction,TurnBasedStrategyCourse
+                        Id: 43c88642-31c2-4dad-8ac4-c6a9bfaa3be3
+                        unit: ref!! acc21d17-a5d6-4d6a-a307-a5dc1339deab
+                        maxMoveDistance*: 4
+                    b78c1736a8df1918cbc10efffed658b3: !TurnBasedStrategyCourse.Unit,TurnBasedStrategyCourse
+                        Id: 20245e48-dd39-4f75-9fa5-9f8589b158e3
+                        Priority: 1
+                        character: ref!! acc21d17-a5d6-4d6a-a307-a5dc1339deab
+                    ac801a9c71bafc9cd401e5520d4288c0: !CharacterComponent
+                        Id: 6d559f43-14e4-4b67-8016-030706958684
+                        CollisionGroup: CustomFilter1
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        FallSpeed: 10.0
+                        MaxSlope: {Radians: 0.7853982}
+                        JumpSpeed: 5.0
+                        Gravity: {X: 0.0, Y: -10.0, Z: 0.0}
+                        ColliderShapes:
+                            b7acf705f6b69b9e0677ce87badd8d15: !CapsuleColliderShapeDesc
+                                Length: 1.2
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 1.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    3e36e27883e965731c5a03c27f062da8: !TurnBasedStrategyCourse.SpinAction,TurnBasedStrategyCourse
+                        Id: 456d06f7-211e-4e4e-8f1a-fed96735b991
+                        unit: ref!! acc21d17-a5d6-4d6a-a307-a5dc1339deab
+            Base:
+                BasePartAsset: 61bbd4aa-ebd6-4764-b4f1-5b55525ac7d1:Unit
+                BasePartId: 1fecd12a-7036-48e1-a6cb-43044ff09302
+                InstanceId: 69fc4750-e777-4656-94f8-5d0442e8223f
+        -   Entity:
+                Id: edb54b6a-8d01-47e0-bdb2-3dea4c479066
+                Name: Testing
+                Components:
+                    b7579c383bee647abf141ed8b31c3ace: !TransformComponent
+                        Id: afd4e8cf-d37d-4538-92e0-2f62cc92310e
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    456cf9719a4e38a58026c8fbfe76bbeb: !TurnBasedStrategyCourse.LevelGrid,TurnBasedStrategyCourse
+                        Id: 9915ae3a-0973-4f12-8351-6e0256318eec
+                        Marker: ref!! 805c833a-4eb1-4737-94a6-681a5a66a4e2
+                    9ad2c89242d44e5aedb3b79e3f2d9ccd: !TurnBasedStrategyCourse.Grid,TurnBasedStrategyCourse
+                        Id: fcd687c4-7b6f-47b3-acbc-5b707832e0cc
+                        TestModel: ref!! 6b4f1127-d05e-4680-ad46-f4cf19d0517d
+                    7abb389e65651158c77ee3d7d9099f5f: !TurnBasedStrategyCourse.GridSystemVisual,TurnBasedStrategyCourse
+                        Id: 55b271c2-f9c4-463b-b73d-438c5d9fad85
+                        Priority: 1
+                        gridSystemVisualPrefab: b9fd8311-b465-42c3-95c1-b6468c6a611f:Grid
+                        blankMaterial: null
+                        originalMaterial: null

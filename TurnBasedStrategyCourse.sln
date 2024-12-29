@@ -1,0 +1,31 @@
+
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.11.35327.3
+MinimumVisualStudioVersion = 16.0.0.0
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TurnBasedStrategyCourse.Windows", "TurnBasedStrategyCourse.Windows\TurnBasedStrategyCourse.Windows.csproj", "{45B25925-BF4E-4569-BF1A-2FE5E60B260C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TurnBasedStrategyCourse", "TurnBasedStrategyCourse\TurnBasedStrategyCourse.csproj", "{6C1E54E3-87A9-4E47-B4FD-6432FC9B7D6F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{45B25925-BF4E-4569-BF1A-2FE5E60B260C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{45B25925-BF4E-4569-BF1A-2FE5E60B260C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{45B25925-BF4E-4569-BF1A-2FE5E60B260C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{45B25925-BF4E-4569-BF1A-2FE5E60B260C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C1E54E3-87A9-4E47-B4FD-6432FC9B7D6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C1E54E3-87A9-4E47-B4FD-6432FC9B7D6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C1E54E3-87A9-4E47-B4FD-6432FC9B7D6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C1E54E3-87A9-4E47-B4FD-6432FC9B7D6F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {F3032A21-B17A-46D4-ABA3-A9D1A3CF9A55}
+	EndGlobalSection
+EndGlobal

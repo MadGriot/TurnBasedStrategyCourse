@@ -1,0 +1,19 @@
+!Package
+SerializedVersion: {Assets: 3.1.0.0}
+Meta:
+    Name: TurnBasedStrategyCourse.Windows
+    Version: 1.0.0
+    Authors: []
+    Owners: []
+    Dependencies: null
+AssetFolders:
+    -   Path: !dir Assets
+ResourceFolders:
+    - !dir Resources
+OutputGroupDirectories: {}
+ExplicitFolders: []
+Bundles: []
+TemplateFolders: []
+RootAssets:
+    - b9fd8311-b465-42c3-95c1-b6468c6a611f:Grid
+    - de3a0363-4728-45c7-be47-e3679c3a63e4:Materials/BlankMaterial

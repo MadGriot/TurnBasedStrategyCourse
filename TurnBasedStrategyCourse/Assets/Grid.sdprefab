@@ -1,0 +1,23 @@
+!PrefabAsset
+Id: b9fd8311-b465-42c3-95c1-b6468c6a611f
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! a7c46d88-a44d-463d-abcf-58a8c4715d89
+    Parts:
+        -   Entity:
+                Id: a7c46d88-a44d-463d-abcf-58a8c4715d89
+                Name: Grid
+                Components:
+                    41004ca1fe1a398c1b98e1368d90cb86: !TransformComponent
+                        Id: 2cd76b9a-e7ec-468d-bf25-af779587bbbd
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 2.0, Y: 1.0, Z: 2.0}
+                        Children: {}
+                    9d53609a4af6826dc942059600aca453: !ModelComponent
+                        Id: 01d017a3-b430-446c-9473-5817292710db
+                        Model: f2edea4f-0967-47b9-b763-24dd2fa81359:Models/plateA
+                        Materials:
+                            363fdf35ca3ff1eaf3d5bbbad042627a~0: 761e8270-84a1-4a4e-9122-1c81171c0acb:Materials/PolishedStone Transparent

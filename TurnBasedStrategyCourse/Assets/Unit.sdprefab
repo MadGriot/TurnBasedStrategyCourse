@@ -1,0 +1,52 @@
+!PrefabAsset
+Id: 61bbd4aa-ebd6-4764-b4f1-5b55525ac7d1
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! 1fecd12a-7036-48e1-a6cb-43044ff09302
+    Parts:
+        -   Entity:
+                Id: 1fecd12a-7036-48e1-a6cb-43044ff09302
+                Name: Unit
+                Components:
+                    33479119eec0a44cdc64b3b41858808c: !TransformComponent
+                        Id: 6711627b-c4c2-4905-a46d-d265e5392e1a
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    c3ca2892eca9bb6194f5b70b357d8910: !ModelComponent
+                        Id: c7e31c50-23b1-4c7f-aad3-9f88624aad13
+                        Model: f68ea240-695a-4de5-9884-60d77544fcd6:Models/mannequinModel
+                        Materials: {}
+                    77e1d54d0a69bae41768bf0e8063c669: !TurnBasedStrategyCourse.MoveAction,TurnBasedStrategyCourse
+                        Id: f8f7e625-dd00-4a99-b1eb-e44f06ef9f03
+                        unit: ref!! 1fecd12a-7036-48e1-a6cb-43044ff09302
+                        maxMoveDistance: 1
+                    b78c1736a8df1918cbc10efffed658b3: !TurnBasedStrategyCourse.Unit,TurnBasedStrategyCourse
+                        Id: 6a8f20e6-582c-4c64-a512-dd238a50d646
+                        Priority: 1
+                        character: ref!! 1fecd12a-7036-48e1-a6cb-43044ff09302
+                    ac801a9c71bafc9cd401e5520d4288c0: !CharacterComponent
+                        Id: 6fbccfa0-e99c-4864-8079-570222cb7404
+                        CollisionGroup: CustomFilter1
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        FallSpeed: 10.0
+                        MaxSlope: {Radians: 0.7853982}
+                        JumpSpeed: 5.0
+                        Gravity: {X: 0.0, Y: -10.0, Z: 0.0}
+                        ColliderShapes:
+                            b7acf705f6b69b9e0677ce87badd8d15: !CapsuleColliderShapeDesc
+                                Length: 1.2
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 1.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    3e36e27883e965731c5a03c27f062da8: !TurnBasedStrategyCourse.SpinAction,TurnBasedStrategyCourse
+                        Id: ebf9a763-53d3-499a-a5fa-8d79b05d9ed8
+                        unit: ref!! 1fecd12a-7036-48e1-a6cb-43044ff09302
