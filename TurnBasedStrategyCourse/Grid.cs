@@ -11,6 +11,7 @@ namespace TurnBasedStrategyCourse
 
 
         public Entity TestModel;
+        private GridSystemVisual gridSystem2;
 
         public override void Start()
         {

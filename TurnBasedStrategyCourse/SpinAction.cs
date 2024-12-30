@@ -8,6 +8,10 @@ namespace TurnBasedStrategyCourse
     {
         private float totalSpinAmount;
 
+        public override void Start()
+        {
+            Name = "Spin";
+        }
 
         public override void Update()
         {

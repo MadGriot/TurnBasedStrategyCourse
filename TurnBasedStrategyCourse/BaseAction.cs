@@ -12,6 +12,7 @@ namespace TurnBasedStrategyCourse
         protected Unit unitComponent;
         protected CharacterComponent characterComponent;
         protected Action onActionComplete;
+        public string Name {  get; protected set; } = "Action";
 
         public override void Start()
         {

@@ -15,6 +15,7 @@ namespace TurnBasedStrategyCourse
 
         public override void Start()
         {
+            Name = "Move";
             base.Start();
             targetPosition = Entity.Transform.Position;
         }

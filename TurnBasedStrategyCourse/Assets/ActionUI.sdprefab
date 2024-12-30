@@ -1,0 +1,23 @@
+!PrefabAsset
+Id: c03c274f-77b6-4e6f-a9b7-5f0c77b3f028
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! 189ceba6-1575-46b8-939b-810a7bae0ecc
+    Parts:
+        -   Entity:
+                Id: 189ceba6-1575-46b8-939b-810a7bae0ecc
+                Name: ActionUI
+                Components:
+                    a8943a5a2a9537216b2f6fdfde5d9280: !TransformComponent
+                        Id: 57dcfe1f-428e-4003-a769-23f0fc4ec3e5
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    0b21afb79ce9804c9e58e4a711077939: !UIComponent
+                        Id: b32d3f0c-32c3-455a-b991-d0335a3cff29
+                        Page: e01621e3-caa1-444d-a9bf-3b8fba032e11:UI/ActionPage
+                        Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+                        Size: {X: 1.28, Y: 0.72, Z: 1.0}

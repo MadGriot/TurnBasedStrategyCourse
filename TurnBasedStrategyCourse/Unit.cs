@@ -1,6 +1,8 @@
 ﻿using Stride.Core.Mathematics;
 using Stride.Input;
 using Stride.Engine;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace TurnBasedStrategyCourse
 {
@@ -11,22 +13,32 @@ namespace TurnBasedStrategyCourse
         public MoveAction moveAction { get; private set; }
 
         public SpinAction spinAction { get; private set; }
+        public List<BaseAction> baseActionList { get; private set; } = new List<BaseAction>();
 
         public override void Start()
         {
-            moveAction = Entity.Get<MoveAction>();
-            spinAction = Entity.Get<SpinAction>();
+            moveAction = character.Get<MoveAction>();
+            spinAction = character.Get<SpinAction>();
+            baseActionList = character.GetAll<BaseAction>().ToList();
             gridPosition = LevelGrid.Instance.GetGridPosition(character.Transform.Position);
             LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, this);
         }
         public override void Update()
         {
-            DebugText.Print($"{character.Transform.Position}", new Int2(200, 300));
+
             GridPosition newGridPosition = LevelGrid.Instance.GetGridPosition(character.Transform.Position);
             if (newGridPosition != gridPosition)
             {
                 LevelGrid.Instance.UnitMovedGridPosition(this, gridPosition, newGridPosition);
                 gridPosition = newGridPosition;
+            }
+        }
+
+        private void AddActions(BaseAction action)
+        {
+            if (action != null)
+            {
+                baseActionList.Add(action);
             }
         }
     }
