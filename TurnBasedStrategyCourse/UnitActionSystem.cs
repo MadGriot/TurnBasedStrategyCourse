@@ -2,6 +2,7 @@
 using Stride.Input;
 using Stride.Engine;
 using System;
+using Stride.UI.Events;
 
 namespace TurnBasedStrategyCourse
 {
@@ -10,6 +11,8 @@ namespace TurnBasedStrategyCourse
         public static UnitActionSystem Instance { get; private set; }
         public Entity SelectedUnit;
         public event EventHandler OnSelectedUnitChanged;
+        public event EventHandler OnSelectedActionChanged;
+
 
         public Unit unit { get; private set; }
         public CameraComponent camera;
@@ -35,6 +38,8 @@ namespace TurnBasedStrategyCourse
                 return;
             }
 
+           // if (UI Button Clicked) return method;
+
             if (TryHandleUnitSelection())
             {
                 return;
@@ -53,20 +58,15 @@ namespace TurnBasedStrategyCourse
             if (Input.IsMouseButtonPressed(MouseButton.Left))
             {
                 GridPosition mouseGridPosition = LevelGrid.Instance.GetGridPosition(MouseWorld.Instance.GetPosition());
-                switch (selectedAction)
+
+                if (selectedAction.IsValidActionGridPosition(mouseGridPosition))
                 {
-                    case MoveAction moveAction:
-                        if (moveAction.IsValidActionGridPosition(mouseGridPosition))
-                        {
-                            SetBusy();
-                            moveAction.Move(mouseGridPosition, ClearBusy);
-                        }
-                        break;
-                    case SpinAction spinAction:
-                            SetBusy();
-                            unit.spinAction.Spin(ClearBusy);
-                        spinAction.Spin(ClearBusy);
-                        break;
+                    if (SelectedUnit.Get<Unit>().TrySpendActionPoints(selectedAction))
+                    {
+                        SetBusy();
+                        selectedAction.TakeAction(mouseGridPosition, ClearBusy);
+                    }
+
                 }
             }
         }
@@ -78,6 +78,11 @@ namespace TurnBasedStrategyCourse
                 if (MouseWorld.Instance.HandleUnitSelection().Succeeded)
                 {
                     SelectedUnit = MouseWorld.Instance.HandleUnitSelection().Collider.Entity;
+                    if (unit.Equals(SelectedUnit.Get<Unit>()))
+                    {
+                        //Unit is already selected
+                        return false;
+                    }
                     unit = SelectedUnit.Get<Unit>();
                     selectedAction = unit.moveAction;
                     
@@ -86,6 +91,12 @@ namespace TurnBasedStrategyCourse
                 }
             }
             return false;
+        }
+
+        public void SetSelectedAction(BaseAction baseAction)
+        {
+            selectedAction = baseAction;
+            OnSelectedActionChanged?.Invoke(this, EventArgs.Empty);
         }
         private void SetBusy() => isBusy = true;
         private void ClearBusy() => isBusy = false;

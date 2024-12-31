@@ -14,6 +14,7 @@ namespace TurnBasedStrategyCourse
 
         public SpinAction spinAction { get; private set; }
         public List<BaseAction> baseActionList { get; private set; } = new List<BaseAction>();
+        internal int actionPoints = 3;
 
         public override void Start()
         {
@@ -41,5 +42,22 @@ namespace TurnBasedStrategyCourse
                 baseActionList.Add(action);
             }
         }
+        public bool TrySpendActionPoints(BaseAction baseAction)
+        {
+            if  (CanSpendActionPoints(baseAction))
+            {
+                SpendActionPoints(baseAction.GetActionPointsCost());
+                return true;
+            }
+             else
+            {
+                return false;
+            }
+
+        }
+        public bool CanSpendActionPoints(BaseAction baseAction) =>
+            actionPoints >= baseAction.GetActionPointsCost();
+
+        private void SpendActionPoints(int amount) => actionPoints -= amount;
     }
 }

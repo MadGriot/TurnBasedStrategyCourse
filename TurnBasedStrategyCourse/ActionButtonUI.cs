@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Stride.Core.Mathematics;
-using Stride.Input;
 using Stride.Engine;
-using Stride.UI;
 using Stride.UI.Controls;
 using Stride.UI.Events;
 
@@ -16,26 +10,49 @@ namespace TurnBasedStrategyCourse
     {
 
         private BaseAction baseAction;
- 
+        private Button button;
+
         public override void Start()
         {
-
+            UnitActionSystem.Instance.OnSelectedActionChanged += UnitActionSystem_OnSelectedUnitChanged;
         }
         public override void Update()
         {
-            // Do stuff every new frame
+
         }
         public void SetBaseAction(BaseAction baseAction, Button button)
         {
             this.baseAction = baseAction;
             button.Click += ActionButtonUI_Click;
+            this.button = button;
+
+
         }
 
+        private void UnitActionSystem_OnSelectedUnitChanged(object sender, EventArgs e)
+        {
+            UpdateSelectedVisual();
+        }
         private void ActionButtonUI_Click(object sender, RoutedEventArgs e)
         {
-            UnitActionSystem.Instance.selectedAction = baseAction;
+            UnitActionSystem.Instance.SetSelectedAction(baseAction);
+
         }
 
+
+        public void UpdateSelectedVisual()
+        {
+            BaseAction selectedBaseAction = UnitActionSystem.Instance.selectedAction;
+
+            if (selectedBaseAction.Equals(baseAction))
+            {
+                button.BackgroundColor = Color.White;
+            }
+            else
+            {
+                button.BackgroundColor = Color.Black;
+            }
+        }
 
     }
 }

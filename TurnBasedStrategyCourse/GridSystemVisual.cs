@@ -68,7 +68,7 @@ namespace TurnBasedStrategyCourse
         {
             HideAllGridPosition();
 
-            ShowGridPositionList(UnitActionSystem.Instance.unit.moveAction.GetValidActionGridPositionList());
+            ShowGridPositionList(UnitActionSystem.Instance.selectedAction.GetValidActionGridPositionList());
         }
 
         public override void Update()

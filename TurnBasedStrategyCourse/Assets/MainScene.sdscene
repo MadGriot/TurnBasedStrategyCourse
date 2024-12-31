@@ -212,7 +212,7 @@ Hierarchy:
                     77e1d54d0a69bae41768bf0e8063c669: !TurnBasedStrategyCourse.MoveAction,TurnBasedStrategyCourse
                         Id: 43c88642-31c2-4dad-8ac4-c6a9bfaa3be3
                         unit: ref!! acc21d17-a5d6-4d6a-a307-a5dc1339deab
-                        maxMoveDistance*: 4
+                        maxMoveDistance*: 2
                     b78c1736a8df1918cbc10efffed658b3: !TurnBasedStrategyCourse.Unit,TurnBasedStrategyCourse
                         Id: 20245e48-dd39-4f75-9fa5-9f8589b158e3
                         Priority: 1

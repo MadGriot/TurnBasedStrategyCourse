@@ -1,63 +1,70 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using Stride.Engine;
 using Stride.UI;
 using Stride.UI.Controls;
-using Stride.UI.Events;
 
 namespace TurnBasedStrategyCourse
 {
     public class UnitActionSystemUI : SyncScript
     {
         public Prefab actionButtonPrefab;
-        List<Entity> instance;
+        Entity instance;
         Entity selectedUnit;
         private float incrementer = 0;
-        private List<List<Entity>> ButtonContainer;
+        private List<Entity> ButtonContainer;
         private UIPage page;
         private BaseAction baseAction;
+
+        private List<ActionButtonUI> actionButtons;
         public override void Start()
         {
             selectedUnit = UnitActionSystem.Instance.SelectedUnit;
             baseAction = selectedUnit.Get<Unit>().moveAction;
-            ButtonContainer = new List<List<Entity>>();
+            ButtonContainer = new List<Entity>();
+            actionButtons = new List<ActionButtonUI>();
             UnitActionSystem.Instance.OnSelectedUnitChanged += UnitActionSystem_OnSelectedUnitChanged;
             CreateUnitActionButtons();
         }
 
         private void CreateUnitActionButtons()
         {
+            actionButtons.Clear();
             selectedUnit = UnitActionSystem.Instance.SelectedUnit;
             foreach (BaseAction baseAction in selectedUnit.Get<Unit>().baseActionList)
             {
                 this.baseAction = baseAction;
                 if (baseAction != null)
                 {
-                    instance = actionButtonPrefab.Instantiate();
+                    instance = actionButtonPrefab.Instantiate().First();
                     ButtonContainer.Add(instance);
-                    foreach (Entity entity in instance)
-                    {
-                        page = entity.Get<UIComponent>().Page;
-                        page.RootElement.FindVisualChildOfType<TextBlock>().Text = baseAction.Name;
-                        page.RootElement.Margin += new Thickness(0, incrementer, 0, 0);
+                    page = instance.Get<UIComponent>().Page;
+                    page.RootElement.FindVisualChildOfType<TextBlock>().Text = baseAction.Name;
+                    page.RootElement.Margin += new Thickness(0, incrementer, 0, 0);
 
-                        entity.Get<ActionButtonUI>().SetBaseAction(baseAction, page.RootElement.FindVisualChildOfType<Button>());
-                        Entity.Scene.Entities.AddRange(instance);
-                        incrementer += 70;
+                    instance.Get<ActionButtonUI>().SetBaseAction(baseAction, page.RootElement.FindVisualChildOfType<Button>());
+                    Entity.Scene.Entities.Add(instance);
 
-                    }
+                    actionButtons.Add(instance.Get<ActionButtonUI>());
+                    instance.Get<ActionButtonUI>().UpdateSelectedVisual();
+                    incrementer += 70;
                 }
             }
         }
 
+        private void UpdateSelectedVisual()
+        {
+            foreach (ActionButtonUI button in actionButtons)
+            {
+                button.UpdateSelectedVisual();
+            }
+        }
         private void RemoveUnitActionButtons()
         {
-            foreach (var entities in ButtonContainer)
+            foreach (Entity entity in ButtonContainer)
             {
-                foreach (Entity entity in entities)
-                {
-                    Entity.Scene.Entities.Remove(entity);
-                }
+                Entity.Scene.Entities.Remove(entity);
             }
             incrementer = 0;
         }

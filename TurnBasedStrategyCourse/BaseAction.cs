@@ -1,6 +1,7 @@
 ﻿using Stride.Engine;
 using Stride.Physics;
 using System;
+using System.Collections.Generic;
 
 namespace TurnBasedStrategyCourse
 {
@@ -25,5 +26,17 @@ namespace TurnBasedStrategyCourse
         {
             // Do stuff every new frame
         }
+
+        public abstract void TakeAction(GridPosition gridPosition, Action onActionComplete);
+
+        public virtual bool IsValidActionGridPosition(GridPosition gridPosition)
+        {
+            List<GridPosition> validGridPositionList = GetValidActionGridPositionList();
+            return validGridPositionList.Contains(gridPosition);
+        }
+
+        public abstract List<GridPosition> GetValidActionGridPositionList();
+
+        public virtual int GetActionPointsCost() => 1;
     }
 }
