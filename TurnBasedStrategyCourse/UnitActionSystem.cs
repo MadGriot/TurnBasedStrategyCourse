@@ -22,6 +22,7 @@ namespace TurnBasedStrategyCourse
             
             Instance = this;
             unit = SelectedUnit.Get<Unit>();
+            selectedAction = SelectedUnit.Get<MoveAction>();
 
         }
 
@@ -79,6 +80,7 @@ namespace TurnBasedStrategyCourse
                     SelectedUnit = MouseWorld.Instance.HandleUnitSelection().Collider.Entity;
                     unit = SelectedUnit.Get<Unit>();
                     selectedAction = unit.moveAction;
+                    
                     OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
                     return true;
                 }

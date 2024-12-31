@@ -18,7 +18,8 @@ namespace TurnBasedStrategyCourse
         private BaseAction baseAction;
         public override void Start()
         {
-
+            selectedUnit = UnitActionSystem.Instance.SelectedUnit;
+            baseAction = selectedUnit.Get<Unit>().moveAction;
             ButtonContainer = new List<List<Entity>>();
             UnitActionSystem.Instance.OnSelectedUnitChanged += UnitActionSystem_OnSelectedUnitChanged;
             CreateUnitActionButtons();
@@ -40,18 +41,13 @@ namespace TurnBasedStrategyCourse
                         page.RootElement.FindVisualChildOfType<TextBlock>().Text = baseAction.Name;
                         page.RootElement.Margin += new Thickness(0, incrementer, 0, 0);
 
-                        page.RootElement.FindVisualChildOfType<Button>().Click += MoveActionBtn_Click;
+                        entity.Get<ActionButtonUI>().SetBaseAction(baseAction, page.RootElement.FindVisualChildOfType<Button>());
                         Entity.Scene.Entities.AddRange(instance);
                         incrementer += 70;
 
                     }
                 }
             }
-        }
-
-        private void MoveActionBtn_Click(object sender, RoutedEventArgs e)
-        {
-            UnitActionSystem.Instance.selectedAction = baseAction;
         }
 
         private void RemoveUnitActionButtons()

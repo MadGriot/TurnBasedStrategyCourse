@@ -21,3 +21,5 @@ Hierarchy:
                         Page: e01621e3-caa1-444d-a9bf-3b8fba032e11:UI/ActionPage
                         Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
                         Size: {X: 1.28, Y: 0.72, Z: 1.0}
+                    f220d7dca7896b23bf9bc0776b87d64a: !TurnBasedStrategyCourse.ActionButtonUI,TurnBasedStrategyCourse
+                        Id: 8d8dea0a-7479-49e6-bb1c-cad3befd8ad6
