@@ -12,6 +12,7 @@ namespace TurnBasedStrategyCourse
         public Entity SelectedUnit;
         public event EventHandler OnSelectedUnitChanged;
         public event EventHandler OnSelectedActionChanged;
+        public event EventHandler OnActionStarted;
 
 
         public Unit unit { get; private set; }
@@ -65,6 +66,8 @@ namespace TurnBasedStrategyCourse
                     {
                         SetBusy();
                         selectedAction.TakeAction(mouseGridPosition, ClearBusy);
+
+                        OnActionStarted?.Invoke(this, EventArgs.Empty);
                     }
 
                 }

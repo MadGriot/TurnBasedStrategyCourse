@@ -13,6 +13,7 @@ namespace TurnBasedStrategyCourse
         Entity instance;
         Entity selectedUnit;
         private float incrementer = 0;
+        public Entity actionPointUI;
         private List<Entity> ButtonContainer;
         private UIPage page;
         private BaseAction baseAction;
@@ -25,8 +26,14 @@ namespace TurnBasedStrategyCourse
             ButtonContainer = new List<Entity>();
             actionButtons = new List<ActionButtonUI>();
             UnitActionSystem.Instance.OnSelectedUnitChanged += UnitActionSystem_OnSelectedUnitChanged;
+            UnitActionSystem.Instance.OnActionStarted += UnitActionSystem_OnActionStarted;
+            TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
+            Unit.OnAnyActionPointsChanged += Unit_OnAnyActionPointsChanged;
             CreateUnitActionButtons();
+            UpdateActionPoints();
         }
+
+
 
         private void CreateUnitActionButtons()
         {
@@ -73,9 +80,31 @@ namespace TurnBasedStrategyCourse
         {
             RemoveUnitActionButtons();
             CreateUnitActionButtons();
+            UpdateActionPoints();
 
         }
 
+        private void UnitActionSystem_OnActionStarted(object sender, EventArgs e)
+        {
+            UpdateActionPoints();
+        }
+
+        private void UpdateActionPoints()
+        {
+            actionPointUI.Get<UIComponent>()
+                .Page.RootElement.FindVisualChildOfType<TextBlock>()
+                .Text = $"Action Points: {UnitActionSystem.Instance.SelectedUnit.Get<Unit>().actionPoints}";
+        }
+
+        private void TurnSystem_OnTurnChanged(object sender, EventArgs e)
+        {
+            UpdateActionPoints();
+        }
+
+        private void Unit_OnAnyActionPointsChanged(object sender, EventArgs e)
+        {
+            UpdateActionPoints();
+        }
         public override void Update()
         {
         }

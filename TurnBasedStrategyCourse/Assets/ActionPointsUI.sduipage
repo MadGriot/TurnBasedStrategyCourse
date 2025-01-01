@@ -1,0 +1,40 @@
+!UIPageAsset
+Id: 56187d95-e218-4e24-bdd9-afaa0373f0eb
+SerializedVersion: {Stride: 2.1.0.1}
+Tags: []
+Design:
+    Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+Hierarchy:
+    RootParts:
+        - !Grid ref!! c4b5d727-b19d-48a2-bea2-b9fa91376ad0
+    Parts:
+        -   UIElement: !Grid
+                Id: c4b5d727-b19d-48a2-bea2-b9fa91376ad0
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Children:
+                    d9e9360bb0b293b5e89d1edfab779540: !TextBlock ref!! d3af6283-07d6-4bbd-809e-587b9ab16ba7
+                RowDefinitions: {}
+                ColumnDefinitions: {}
+                LayerDefinitions: {}
+        -   UIElement: !TextBlock
+                Id: d3af6283-07d6-4bbd-809e-587b9ab16ba7
+                DependencyProperties:
+                    01a2dc1a04937b77bc49acff4541c118~Panel.ZIndexPropertyKey: 0
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Width: 348.0
+                Height: 88.0
+                VerticalAlignment: Top
+                Margin: {Left: 368.0, Right: 564.0}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Text: 'Action Points:'
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
+                TextSize: 25.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+                TextAlignment: Center

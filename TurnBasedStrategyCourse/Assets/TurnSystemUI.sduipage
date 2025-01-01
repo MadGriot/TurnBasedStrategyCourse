@@ -1,0 +1,80 @@
+!UIPageAsset
+Id: dbeaf94c-fa9d-4d72-ab34-9be77199bff2
+SerializedVersion: {Stride: 2.1.0.1}
+Tags: []
+Design:
+    Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+Hierarchy:
+    RootParts:
+        - !Grid ref!! 62217bcd-2074-4123-b1f6-a3437b796f5a
+    Parts:
+        -   UIElement: !TextBlock
+                Id: 251603d7-4fec-4724-904e-994cb42fc26a
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                HorizontalAlignment: Center
+                VerticalAlignment: Center
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: EndTurnText
+                Text: End Turn
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
+                TextSize: 20.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+        -   UIElement: !TextBlock
+                Id: 2dfbd396-8b05-4229-bd2c-7bb905ff91bc
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Width: 294.0
+                Height: 40.0
+                HorizontalAlignment: Right
+                VerticalAlignment: Top
+                Margin: {Right: 345.0}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: TurnNumberText
+                Text: Turn 1
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
+                TextSize: 30.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+                TextAlignment: Center
+        -   UIElement: !Grid
+                Id: 62217bcd-2074-4123-b1f6-a3437b796f5a
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Children:
+                    4afcebf8e1b1316195e0bd9973fb2dc7: !Button ref!! 97b0556e-71b5-4546-a392-5613dacc0664
+                    134b41593fe1403473d7f7e5078428a2: !TextBlock ref!! 2dfbd396-8b05-4229-bd2c-7bb905ff91bc
+                RowDefinitions: {}
+                ColumnDefinitions: {}
+                LayerDefinitions: {}
+        -   UIElement: !Button
+                Id: 97b0556e-71b5-4546-a392-5613dacc0664
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                DrawLayerNumber: 2
+                Width: 328.0
+                Height: 89.0
+                HorizontalAlignment: Right
+                VerticalAlignment: Top
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: EndTurnButton
+                Content: !TextBlock ref!! 251603d7-4fec-4724-904e-994cb42fc26a
+                PressedImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 2
+                NotPressedImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 1
+                MouseOverImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns

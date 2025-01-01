@@ -15,6 +15,8 @@ Hierarchy:
         - ref!! 0db9e3ae-c918-46b3-b921-b8e95a82e782
         - ref!! 6b4f1127-d05e-4680-ad46-f4cf19d0517d
         - ref!! acc21d17-a5d6-4d6a-a307-a5dc1339deab
+        - ref!! ed1a9c55-6c4b-49f6-822e-c96ff2100918
+        - ref!! c4732337-40eb-4819-89e9-ba199adb3783
     Parts:
         -   Entity:
                 Id: 0db9e3ae-c918-46b3-b921-b8e95a82e782
@@ -37,6 +39,7 @@ Hierarchy:
                         Id: 42ac3057-93fc-474e-b17d-293dafe10c9a
                         Priority: 2
                         actionButtonPrefab: c03c274f-77b6-4e6f-a9b7-5f0c77b3f028:ActionUI
+                        actionPointUI: ref!! ed1a9c55-6c4b-49f6-822e-c96ff2100918
                     12776adfc1d958f339bb05d4f52ecbe0: !TurnBasedStrategyCourse.GridSystemVisual,TurnBasedStrategyCourse
                         Id: e2277abd-f646-4309-a809-9e5a5653600a
                         gridSystemVisualPrefab: b9fd8311-b465-42c3-95c1-b6468c6a611f:Grid
@@ -241,6 +244,42 @@ Hierarchy:
                 BasePartAsset: 61bbd4aa-ebd6-4764-b4f1-5b55525ac7d1:Unit
                 BasePartId: 1fecd12a-7036-48e1-a6cb-43044ff09302
                 InstanceId: 69fc4750-e777-4656-94f8-5d0442e8223f
+        -   Entity:
+                Id: c4732337-40eb-4819-89e9-ba199adb3783
+                Name: TurnSystemUI
+                Components:
+                    9a767a85689dc4e15f6df4c27790225c: !TransformComponent
+                        Id: d9fb18f5-9942-4ff3-b6fa-b130dadadb85
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    acceb962df44820b5901b0b98616ccdf: !UIComponent
+                        Id: 58ab9697-46c1-403b-99bc-d585384b2615
+                        Page: dbeaf94c-fa9d-4d72-ab34-9be77199bff2:TurnSystemUI
+                        Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+                        Size: {X: 1.28, Y: 0.72, Z: 1.0}
+                    cdb7be50f943c309abbbf79b06adbb78: !TurnBasedStrategyCourse.TurnSystemUICode,TurnBasedStrategyCourse
+                        Id: d6d0d137-f285-42f5-9426-1622adeb842a
+                        Priority: 1
+                        turnUI: ref!! c4732337-40eb-4819-89e9-ba199adb3783
+                    d7e6b63d56d23cbd415f85b7d3039ce8: !TurnBasedStrategyCourse.TurnSystem,TurnBasedStrategyCourse
+                        Id: 43fa8d15-cb0a-4a46-89a5-b50bec3b3bb6
+        -   Entity:
+                Id: ed1a9c55-6c4b-49f6-822e-c96ff2100918
+                Name: ActionPointUI
+                Components:
+                    e69eb90d46d79d347980d33de3650b63: !TransformComponent
+                        Id: e867e694-f8f6-49cd-9aac-2ca8d51f6535
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    d5ccc2fdd5de33796b5317f22467df86: !UIComponent
+                        Id: 16bf46f8-f661-4d67-ae25-0871eac19e8c
+                        Page: 56187d95-e218-4e24-bdd9-afaa0373f0eb:ActionPointsUI
+                        Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+                        Size: {X: 1.28, Y: 0.72, Z: 1.0}
         -   Entity:
                 Id: edb54b6a-8d01-47e0-bdb2-3dea4c479066
                 Name: Testing

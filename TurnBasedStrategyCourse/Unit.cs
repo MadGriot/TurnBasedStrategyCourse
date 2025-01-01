@@ -3,18 +3,23 @@ using Stride.Input;
 using Stride.Engine;
 using System.Collections.Generic;
 using System.Linq;
+using System;
 
 namespace TurnBasedStrategyCourse
 {
     public class Unit : SyncScript
     {
+        private const int ACTION_POINTS_MAX = 3;
+
+        public static event EventHandler OnAnyActionPointsChanged;
+
         public Entity character;
         public GridPosition gridPosition { get; private set; }
         public MoveAction moveAction { get; private set; }
 
         public SpinAction spinAction { get; private set; }
         public List<BaseAction> baseActionList { get; private set; } = new List<BaseAction>();
-        internal int actionPoints = 3;
+        internal int actionPoints = ACTION_POINTS_MAX;
 
         public override void Start()
         {
@@ -23,6 +28,8 @@ namespace TurnBasedStrategyCourse
             baseActionList = character.GetAll<BaseAction>().ToList();
             gridPosition = LevelGrid.Instance.GetGridPosition(character.Transform.Position);
             LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, this);
+
+            TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
         }
         public override void Update()
         {
@@ -58,6 +65,18 @@ namespace TurnBasedStrategyCourse
         public bool CanSpendActionPoints(BaseAction baseAction) =>
             actionPoints >= baseAction.GetActionPointsCost();
 
-        private void SpendActionPoints(int amount) => actionPoints -= amount;
+        private void SpendActionPoints(int amount)
+        {
+            actionPoints -= amount;
+
+            OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
+        }
+        private void TurnSystem_OnTurnChanged(object sender, EventArgs e)
+        {
+            actionPoints = ACTION_POINTS_MAX;
+
+            OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
+
+        }
     }
 }
