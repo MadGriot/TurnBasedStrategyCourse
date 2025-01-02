@@ -1,36 +1,37 @@
 !PrefabAsset
-Id: 61bbd4aa-ebd6-4764-b4f1-5b55525ac7d1
+Id: 0e0aa08c-7ac2-49b4-83d9-3101b4ac6e23
 SerializedVersion: {Stride: 3.1.0.1}
 Tags: []
 Hierarchy:
     RootParts:
-        - ref!! 1fecd12a-7036-48e1-a6cb-43044ff09302
+        - ref!! e1c49c6a-3719-4704-8c2d-8cb784d15eb6
     Parts:
         -   Entity:
-                Id: 1fecd12a-7036-48e1-a6cb-43044ff09302
+                Id: e1c49c6a-3719-4704-8c2d-8cb784d15eb6
                 Name: Unit
                 Components:
                     33479119eec0a44cdc64b3b41858808c: !TransformComponent
-                        Id: 6711627b-c4c2-4905-a46d-d265e5392e1a
+                        Id: a0fd59c9-956c-4d48-94a5-fc38c49151ec
                         Position: {X: 0.0, Y: 0.0, Z: 0.0}
                         Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                         Scale: {X: 1.0, Y: 1.0, Z: 1.0}
                         Children: {}
                     c3ca2892eca9bb6194f5b70b357d8910: !ModelComponent
-                        Id: c7e31c50-23b1-4c7f-aad3-9f88624aad13
+                        Id: f8244928-b7db-468e-990e-f36a8615c8db
                         Model: f68ea240-695a-4de5-9884-60d77544fcd6:Models/mannequinModel
-                        Materials: {}
+                        Materials:
+                            77f24c03940615a287f2d92cb4fbfa45~0: d7a5f36a-ed76-43fd-b323-cf0dc96d668c:Materials/MaterialRed
                     77e1d54d0a69bae41768bf0e8063c669: !TurnBasedStrategyCourse.MoveAction,TurnBasedStrategyCourse
-                        Id: f8f7e625-dd00-4a99-b1eb-e44f06ef9f03
-                        unit: ref!! 1fecd12a-7036-48e1-a6cb-43044ff09302
+                        Id: 5b921b0c-b70a-4dbe-993c-0e06d82da69d
+                        unit: ref!! e1c49c6a-3719-4704-8c2d-8cb784d15eb6
                         maxMoveDistance: 1
                     b78c1736a8df1918cbc10efffed658b3: !TurnBasedStrategyCourse.Unit,TurnBasedStrategyCourse
-                        Id: 6a8f20e6-582c-4c64-a512-dd238a50d646
+                        Id: 90b8bd7e-8d41-4739-8c08-1e9cbb68a93f
                         Priority: 1
-                        isEnemy: false
-                        character: ref!! 1fecd12a-7036-48e1-a6cb-43044ff09302
+                        isEnemy: true
+                        character: ref!! e1c49c6a-3719-4704-8c2d-8cb784d15eb6
                     ac801a9c71bafc9cd401e5520d4288c0: !CharacterComponent
-                        Id: 6fbccfa0-e99c-4864-8079-570222cb7404
+                        Id: 0b0590d1-a5dd-408c-9d71-f2a549df861e
                         CollisionGroup: CustomFilter1
                         CanSleep: false
                         Restitution: 0.0
@@ -49,15 +50,11 @@ Hierarchy:
                                 LocalOffset: {X: 0.0, Y: 1.0, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
                     3e36e27883e965731c5a03c27f062da8: !TurnBasedStrategyCourse.SpinAction,TurnBasedStrategyCourse
-                        Id: ebf9a763-53d3-499a-a5fa-8d79b05d9ed8
-                        unit: ref!! 1fecd12a-7036-48e1-a6cb-43044ff09302
-                    90d1aa9deb698f76f475a063021c1cd9: !TurnBasedStrategyCourse.StrikeAction,TurnBasedStrategyCourse
-                        Id: d3b77309-2c9b-414a-99de-f009cfd3626e
-                        unit: ref!! 1fecd12a-7036-48e1-a6cb-43044ff09302
-                    a12019f257f949baa687f3b9f1030752: !TurnBasedStrategyCourse.CharacterSheetLogic,TurnBasedStrategyCourse
-                        Id: 18360517-00de-4b70-8932-fcd4450c0960
+                        Id: 8463fe13-dd0c-47c4-b301-857085694469
+                        unit: ref!! e1c49c6a-3719-4704-8c2d-8cb784d15eb6
+                    3071fc0b5b1c560e63a61492397c2e1b: !TurnBasedStrategyCourse.StrikeAction,TurnBasedStrategyCourse
+                        Id: 74308748-44b2-4cac-b0e9-46eaf3a549b7
+                        unit: ref!! e1c49c6a-3719-4704-8c2d-8cb784d15eb6
+                    356c25e2299c5da78399822b9ec0e035: !TurnBasedStrategyCourse.CharacterSheetLogic,TurnBasedStrategyCourse
+                        Id: 232d9541-53aa-49ba-a3fc-003ac89f01d1
                         HP: 20
-                    ba4da2b4d7cffba2166d471b1454ad34: !TurnBasedStrategyCourse.UnitWorldUi,TurnBasedStrategyCourse
-                        Id: 3d9c2d44-8f7c-4caf-82d0-f6fec6b9cc12
-                        healthStatus: 56863f4d-ac12-4d0a-b2ac-bf89ae307321:HealthStatus
-                        entity: ref!! 1fecd12a-7036-48e1-a6cb-43044ff09302

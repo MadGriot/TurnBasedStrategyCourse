@@ -1,0 +1,74 @@
+!UIPageAsset
+Id: 50a79903-c7de-4938-87ea-55f2fe5be2a1
+SerializedVersion: {Stride: 2.1.0.1}
+Tags: []
+Design:
+    Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+Hierarchy:
+    RootParts:
+        - !Grid ref!! 4c584cb5-99b1-4731-8090-ab1fbf8aba43
+    Parts:
+        -   UIElement: !Slider
+                Id: 0658c2a8-8d2c-451a-aa4c-a9861b6a0534
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                DrawLayerNumber: 5
+                Width: 100.0
+                Height: 10.0
+                HorizontalAlignment: Stretch
+                VerticalAlignment: Bottom
+                Margin: {Left: 11.0, Right: 120.0, Bottom: 94.0}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: HealthBar
+                TrackBackgroundImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 9
+                TrackForegroundImage: !SpriteFromSheet
+                    Sheet: 1d0a64e2-245f-40f2-8bec-59a855640ec6:HealthBarFill
+                    CurrentFrame: 12
+                TrackStartingOffsets: {X: 3.0, Y: 3.0}
+                ThumbImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 7
+                MouseOverThumbImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 6
+                TickImage: !SpriteFromSheet
+                    Sheet: 1be3340c-b797-4557-bff7-d9be92dfdb42:StrideUIDesigns
+                    CurrentFrame: 8
+                TickOffset: 13.0
+        -   UIElement: !Grid
+                Id: 4c584cb5-99b1-4731-8090-ab1fbf8aba43
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Width: 331.0
+                Height: 720.0
+                HorizontalAlignment: Left
+                Margin: {}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Children:
+                    b4692e4c07d68f4b6498f445216fa312: !Slider ref!! 0658c2a8-8d2c-451a-aa4c-a9861b6a0534
+                    516fb4d60a1671d86bf313c3e5ad6af6: !TextBlock ref!! fd3e5542-9c4b-41ca-96d8-4f7e8e28246f
+                RowDefinitions: {}
+                ColumnDefinitions: {}
+                LayerDefinitions: {}
+        -   UIElement: !TextBlock
+                Id: fd3e5542-9c4b-41ca-96d8-4f7e8e28246f
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Width: 29.0
+                Height: 23.0
+                VerticalAlignment: Bottom
+                Margin: {Left: 161.0, Right: 141.0, Bottom: 94.0}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Text: 3
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
+                TextSize: 25.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+                TextAlignment: Center

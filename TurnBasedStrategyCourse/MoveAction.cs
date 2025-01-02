@@ -37,16 +37,15 @@ namespace TurnBasedStrategyCourse
             else
             {
                 characterComponent.SetVelocity(Vector3.Zero);
-                isActive = false;
-                onActionComplete();
+                ActionComplete();
+
             }
         }
 
         public override void TakeAction(GridPosition gridPosition, Action onActionComplete)
         {
-            this.onActionComplete = onActionComplete;
+            ActionStart(onActionComplete);
             targetPosition = LevelGrid.Instance.GetWorldPosition(gridPosition);
-            isActive = true;
         }
 
         public override List<GridPosition> GetValidActionGridPositionList()

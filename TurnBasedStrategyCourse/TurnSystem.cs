@@ -9,10 +9,12 @@ namespace TurnBasedStrategyCourse
 
         public event EventHandler OnTurnChanged;
         internal int turnNumber = 1;
+        internal bool isPlayerTurn = true;
 
         public void NextTurn()
         {
             turnNumber++;
+            isPlayerTurn = !isPlayerTurn;
             OnTurnChanged?.Invoke(this, EventArgs.Empty);
         }
 

@@ -1,0 +1,37 @@
+!UIPageAsset
+Id: eece15de-943c-4d56-9143-044586bd1882
+SerializedVersion: {Stride: 2.1.0.1}
+Tags: []
+Design:
+    Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+Hierarchy:
+    RootParts:
+        - !Grid ref!! 8ba6d5e4-88d1-4f43-a417-df2b46440254
+    Parts:
+        -   UIElement: !Grid
+                Id: 8ba6d5e4-88d1-4f43-a417-df2b46440254
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Margin: {}
+                Children:
+                    fd7c3df93826475f09777c665ce8902b: !TextBlock ref!! a5be621a-2b44-4883-af76-9a02d41b3e08
+                RowDefinitions: {}
+                ColumnDefinitions: {}
+                LayerDefinitions: {}
+        -   UIElement: !TextBlock
+                Id: a5be621a-2b44-4883-af76-9a02d41b3e08
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Width: 682.0
+                Height: 59.0
+                VerticalAlignment: Bottom
+                Margin: {Left: 320.0, Right: 278.0}
+                MaximumWidth: 3.4028235E+38
+                MaximumHeight: 3.4028235E+38
+                MaximumDepth: 3.4028235E+38
+                Name: TurnText
+                Text: Player Turn
+                Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
+                TextSize: 20.0
+                TextColor: {R: 240, G: 240, B: 240, A: 255}
+                TextAlignment: Center

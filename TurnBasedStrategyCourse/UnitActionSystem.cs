@@ -39,6 +39,8 @@ namespace TurnBasedStrategyCourse
                 return;
             }
 
+            if (!TurnSystem.Instance.isPlayerTurn) return;
+
            // if (UI Button Clicked) return method;
 
             if (TryHandleUnitSelection())
@@ -86,6 +88,9 @@ namespace TurnBasedStrategyCourse
                         //Unit is already selected
                         return false;
                     }
+
+                    if (SelectedUnit.Get<Unit>().isEnemy) return false;
+
                     unit = SelectedUnit.Get<Unit>();
                     selectedAction = unit.moveAction;
                     

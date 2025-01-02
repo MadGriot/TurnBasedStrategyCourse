@@ -15,8 +15,10 @@ Hierarchy:
         - ref!! 0db9e3ae-c918-46b3-b921-b8e95a82e782
         - ref!! 6b4f1127-d05e-4680-ad46-f4cf19d0517d
         - ref!! acc21d17-a5d6-4d6a-a307-a5dc1339deab
+        - ref!! d3c91bcf-10f4-44ce-a007-6a315689b222
         - ref!! ed1a9c55-6c4b-49f6-822e-c96ff2100918
         - ref!! c4732337-40eb-4819-89e9-ba199adb3783
+        - ref!! 7f894d18-d508-43f3-9f17-0a49bd2886f2
     Parts:
         -   Entity:
                 Id: 0db9e3ae-c918-46b3-b921-b8e95a82e782
@@ -91,6 +93,7 @@ Hierarchy:
                     b78c1736a8df1918cbc10efffed658b3: !TurnBasedStrategyCourse.Unit,TurnBasedStrategyCourse
                         Id: fd431ab7-f132-4917-a8b7-cd5f19987e28
                         Priority: 1
+                        isEnemy: false
                         character: ref!! 6b4f1127-d05e-4680-ad46-f4cf19d0517d
                     ac801a9c71bafc9cd401e5520d4288c0: !CharacterComponent
                         Id: 62e3795c-0a51-4798-9c65-1098a7cb14a3
@@ -114,10 +117,35 @@ Hierarchy:
                     3e36e27883e965731c5a03c27f062da8: !TurnBasedStrategyCourse.SpinAction,TurnBasedStrategyCourse
                         Id: c912ecd1-1149-4f7a-bdff-5d7fa4940bd0
                         unit: ref!! 6b4f1127-d05e-4680-ad46-f4cf19d0517d
+                    90d1aa9deb698f76f475a063021c1cd9: !TurnBasedStrategyCourse.StrikeAction,TurnBasedStrategyCourse
+                        Id: 14e5c463-24d1-4cd3-bf5c-fa883e2287b4
+                        unit: ref!! 6b4f1127-d05e-4680-ad46-f4cf19d0517d
+                    a12019f257f949baa687f3b9f1030752: !TurnBasedStrategyCourse.CharacterSheetLogic,TurnBasedStrategyCourse
+                        Id: 7d02874a-6af7-473f-bf06-d65882f61f5c
+                        HP: 20
+                    ba4da2b4d7cffba2166d471b1454ad34: !TurnBasedStrategyCourse.UnitWorldUi,TurnBasedStrategyCourse
+                        Id: c6eb4a91-fe38-461f-9799-72378547788f
+                        healthStatus: 56863f4d-ac12-4d0a-b2ac-bf89ae307321:HealthStatus
+                        entity: ref!! 6b4f1127-d05e-4680-ad46-f4cf19d0517d
             Base:
                 BasePartAsset: 61bbd4aa-ebd6-4764-b4f1-5b55525ac7d1:Unit
                 BasePartId: 1fecd12a-7036-48e1-a6cb-43044ff09302
                 InstanceId: 37c12abb-f919-4ad5-8473-697495a0a789
+        -   Entity:
+                Id: 7f894d18-d508-43f3-9f17-0a49bd2886f2
+                Name: TurnVisual
+                Components:
+                    70a317c353e386600188fbc2c5e0f921: !TransformComponent
+                        Id: 77200165-fc41-446e-9fc6-5f1878a32656
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    d5edd4bdab2b461685d6b1c846a3bef5: !UIComponent
+                        Id: 0e8d5e73-c4a2-40a0-b034-782f4ee11142
+                        Page: eece15de-943c-4d56-9143-044586bd1882:TurnVisual
+                        Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+                        Size: {X: 1.28, Y: 0.72, Z: 1.0}
         -   Entity:
                 Id: 805c833a-4eb1-4737-94a6-681a5a66a4e2
                 Name: Coin
@@ -219,6 +247,7 @@ Hierarchy:
                     b78c1736a8df1918cbc10efffed658b3: !TurnBasedStrategyCourse.Unit,TurnBasedStrategyCourse
                         Id: 20245e48-dd39-4f75-9fa5-9f8589b158e3
                         Priority: 1
+                        isEnemy: false
                         character: ref!! acc21d17-a5d6-4d6a-a307-a5dc1339deab
                     ac801a9c71bafc9cd401e5520d4288c0: !CharacterComponent
                         Id: 6d559f43-14e4-4b67-8016-030706958684
@@ -239,6 +268,16 @@ Hierarchy:
                                 Radius: 0.4
                                 LocalOffset: {X: 0.0, Y: 1.0, Z: 0.0}
                                 LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    90d1aa9deb698f76f475a063021c1cd9: !TurnBasedStrategyCourse.StrikeAction,TurnBasedStrategyCourse
+                        Id: 899ab454-ebba-408b-82c0-fb869ac6be6f
+                        unit: ref!! acc21d17-a5d6-4d6a-a307-a5dc1339deab
+                    a12019f257f949baa687f3b9f1030752: !TurnBasedStrategyCourse.CharacterSheetLogic,TurnBasedStrategyCourse
+                        Id: e9084d70-3612-49f7-82f3-2d2320ec039e
+                        HP: 20
+                    ba4da2b4d7cffba2166d471b1454ad34: !TurnBasedStrategyCourse.UnitWorldUi,TurnBasedStrategyCourse
+                        Id: 28be46eb-7462-45ca-85e5-4e71c1e335ca
+                        healthStatus: 56863f4d-ac12-4d0a-b2ac-bf89ae307321:HealthStatus
+                        entity: ref!! acc21d17-a5d6-4d6a-a307-a5dc1339deab
                     3e36e27883e965731c5a03c27f062da8: ~(Deleted)
             Base:
                 BasePartAsset: 61bbd4aa-ebd6-4764-b4f1-5b55525ac7d1:Unit
@@ -263,8 +302,68 @@ Hierarchy:
                         Id: d6d0d137-f285-42f5-9426-1622adeb842a
                         Priority: 1
                         turnUI: ref!! c4732337-40eb-4819-89e9-ba199adb3783
+                        turnVisual: ref!! 7f894d18-d508-43f3-9f17-0a49bd2886f2
                     d7e6b63d56d23cbd415f85b7d3039ce8: !TurnBasedStrategyCourse.TurnSystem,TurnBasedStrategyCourse
                         Id: 43fa8d15-cb0a-4a46-89a5-b50bec3b3bb6
+                    4d4ce0dc82f779a8e9a7d45a3f0e255d: !TurnBasedStrategyCourse.EnemyAI,TurnBasedStrategyCourse
+                        Id: d2b8c40d-e00c-4524-9d70-47e560d14b25
+                        Priority: 1
+        -   Entity:
+                Id: d3c91bcf-10f4-44ce-a007-6a315689b222
+                Name*: Unit3
+                Components:
+                    33479119eec0a44cdc64b3b41858808c: !TransformComponent
+                        Id: 6aaa38f2-9651-4e1e-8b0c-104b0ed7c3c3
+                        Position*: {X: 8.0, Y: 0.0, Z: 6.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    c3ca2892eca9bb6194f5b70b357d8910: !ModelComponent
+                        Id: db898ab9-4ee3-484d-adfc-53c6a9577103
+                        Model: f68ea240-695a-4de5-9884-60d77544fcd6:Models/mannequinModel
+                        Materials:
+                            77f24c03940615a287f2d92cb4fbfa45~0: d7a5f36a-ed76-43fd-b323-cf0dc96d668c:Materials/MaterialRed
+                    77e1d54d0a69bae41768bf0e8063c669: !TurnBasedStrategyCourse.MoveAction,TurnBasedStrategyCourse
+                        Id: e9125fba-5419-4f5a-8937-6f7a9de4612a
+                        unit: ref!! d3c91bcf-10f4-44ce-a007-6a315689b222
+                        maxMoveDistance: 1
+                    b78c1736a8df1918cbc10efffed658b3: !TurnBasedStrategyCourse.Unit,TurnBasedStrategyCourse
+                        Id: 26d2d719-6067-49df-8f46-514cd839e1a6
+                        Priority: 1
+                        isEnemy: true
+                        character: ref!! d3c91bcf-10f4-44ce-a007-6a315689b222
+                    ac801a9c71bafc9cd401e5520d4288c0: !CharacterComponent
+                        Id: bbd2ff56-2526-445c-83e9-40b08063a825
+                        CollisionGroup: CustomFilter1
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        FallSpeed: 10.0
+                        MaxSlope: {Radians: 0.7853982}
+                        JumpSpeed: 5.0
+                        Gravity: {X: 0.0, Y: -10.0, Z: 0.0}
+                        ColliderShapes:
+                            b7acf705f6b69b9e0677ce87badd8d15: !CapsuleColliderShapeDesc
+                                Length: 1.2
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 1.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    3e36e27883e965731c5a03c27f062da8: !TurnBasedStrategyCourse.SpinAction,TurnBasedStrategyCourse
+                        Id: 2f640682-7fd2-4013-8831-8ac4cd5ec4b0
+                        unit: ref!! d3c91bcf-10f4-44ce-a007-6a315689b222
+                    3071fc0b5b1c560e63a61492397c2e1b: !TurnBasedStrategyCourse.StrikeAction,TurnBasedStrategyCourse
+                        Id: 130f9734-efe0-4f1f-ab73-1c2cec97618e
+                        unit: ref!! d3c91bcf-10f4-44ce-a007-6a315689b222
+                    356c25e2299c5da78399822b9ec0e035: !TurnBasedStrategyCourse.CharacterSheetLogic,TurnBasedStrategyCourse
+                        Id: 112868a7-377d-4099-9213-38da5189f6db
+                        HP: 20
+            Base:
+                BasePartAsset: 0e0aa08c-7ac2-49b4-83d9-3101b4ac6e23:UnitEnemy
+                BasePartId: e1c49c6a-3719-4704-8c2d-8cb784d15eb6
+                InstanceId: 6aae7895-ec60-4ae2-84ac-e4d6bf7c30a8
         -   Entity:
                 Id: ed1a9c55-6c4b-49f6-822e-c96ff2100918
                 Name: ActionPointUI

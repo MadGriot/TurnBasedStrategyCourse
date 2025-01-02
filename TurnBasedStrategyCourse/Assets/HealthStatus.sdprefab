@@ -1,0 +1,23 @@
+!PrefabAsset
+Id: 56863f4d-ac12-4d0a-b2ac-bf89ae307321
+SerializedVersion: {Stride: 3.1.0.1}
+Tags: []
+Hierarchy:
+    RootParts:
+        - ref!! 457290db-12d1-41cd-bea4-a082601eb194
+    Parts:
+        -   Entity:
+                Id: 457290db-12d1-41cd-bea4-a082601eb194
+                Name: HealthStatus
+                Components:
+                    9ed0df09042c0d1539bbd47574fbea08: !TransformComponent
+                        Id: 6c0f87dc-9523-44a8-b601-d07205d4a0a6
+                        Position: {X: 0.0, Y: 0.0, Z: 0.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    c312c894e0224c8a39bd1cd3e960bb5c: !UIComponent
+                        Id: eff98c11-1bc5-41c7-8e08-affe415fea42
+                        Page: 50a79903-c7de-4938-87ea-55f2fe5be2a1:UI/HealthStatus
+                        Resolution: {X: 1280.0, Y: 720.0, Z: 1000.0}
+                        Size: {X: 1.28, Y: 0.72, Z: 1.0}

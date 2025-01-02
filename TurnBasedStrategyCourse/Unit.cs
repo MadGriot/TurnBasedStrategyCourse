@@ -13,8 +13,11 @@ namespace TurnBasedStrategyCourse
 
         public static event EventHandler OnAnyActionPointsChanged;
 
+        public bool isEnemy;
+
         public Entity character;
         public GridPosition gridPosition { get; private set; }
+        public CharacterSheetLogic characterSheetLogic { get; private set; }
         public MoveAction moveAction { get; private set; }
 
         public SpinAction spinAction { get; private set; }
@@ -25,10 +28,11 @@ namespace TurnBasedStrategyCourse
         {
             moveAction = character.Get<MoveAction>();
             spinAction = character.Get<SpinAction>();
+            characterSheetLogic = character.Get<CharacterSheetLogic>();
             baseActionList = character.GetAll<BaseAction>().ToList();
             gridPosition = LevelGrid.Instance.GetGridPosition(character.Transform.Position);
             LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, this);
-
+            characterSheetLogic.OnUnconcious += CharacterSheetLogic_OnUnconcious;
             TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
         }
         public override void Update()
@@ -73,10 +77,26 @@ namespace TurnBasedStrategyCourse
         }
         private void TurnSystem_OnTurnChanged(object sender, EventArgs e)
         {
-            actionPoints = ACTION_POINTS_MAX;
+            if ((isEnemy && !TurnSystem.Instance.isPlayerTurn) ||
+                (!isEnemy && TurnSystem.Instance.isPlayerTurn))
+            {
+                actionPoints = ACTION_POINTS_MAX;
 
-            OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
+                OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
+            }
 
+
+        }
+
+        public void Damage(int damageAmount)
+        {
+            characterSheetLogic.Damage(damageAmount);
+        }
+
+        private void CharacterSheetLogic_OnUnconcious(object sender, EventArgs e)
+        {
+            LevelGrid.Instance.RemoveUnitAtGridPosition(gridPosition, this);
+            Entity.Scene.Entities.Remove(character);
         }
     }
 }

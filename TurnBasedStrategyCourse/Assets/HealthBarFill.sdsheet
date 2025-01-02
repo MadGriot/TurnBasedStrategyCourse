@@ -1,0 +1,15 @@
+!SpriteSheet
+Id: 1d0a64e2-245f-40f2-8bec-59a855640ec6
+SerializedVersion: {Stride: 2.0.0.0}
+Tags: []
+Type: Sprite2D
+ColorKeyColor: {R: 255, G: 0, B: 255, A: 255}
+Packing: {}
+Sprites:
+    3493d4fde3075be54f9c7df7fffd50e5:
+        Source: !file ../../../../../Desktop/HealthBarFill.png
+        Name: HealthBarFill
+        TextureRegion: {X: 0, Y: 0, Width: 200, Height: 40}
+        Center: {X: 0.0, Y: 0.0}
+        Borders: {X: 0.0, Y: 0.0, Z: 0.0, W: 0.0}
+        BorderColor: {R: 0, G: 0, B: 0, A: 0}

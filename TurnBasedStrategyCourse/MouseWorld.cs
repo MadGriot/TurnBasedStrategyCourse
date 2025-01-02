@@ -12,7 +12,7 @@ namespace TurnBasedStrategyCourse
 
         public CollisionFilterGroupFlags CollideWith;
         public bool CollideWithTriggers;
-        private CameraComponent camera;
+        internal CameraComponent camera;
         private Simulation simulation;
         private Vector3 targetPosition;
         public static MouseWorld Instance;
