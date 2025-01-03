@@ -15,9 +15,9 @@ Hierarchy:
                 DrawLayerNumber: 2
                 Width: 120.0
                 Height: 60.0
-                HorizontalAlignment: Left
+                HorizontalAlignment: Right
                 VerticalAlignment: Top
-                Margin: {Left: 20.0}
+                Margin: {Top: 256.0}
                 MaximumWidth: 3.4028235E+38
                 MaximumHeight: 3.4028235E+38
                 MaximumDepth: 3.4028235E+38

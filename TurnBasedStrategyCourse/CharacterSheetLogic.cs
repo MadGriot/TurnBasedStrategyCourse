@@ -1,17 +1,21 @@
 ﻿using System;
 using Stride.Engine;
+using Stride.UI.Controls;
 
 namespace TurnBasedStrategyCourse
 {
     public class CharacterSheetLogic : SyncScript
     {
         public event EventHandler OnUnconcious;
-        public int HP = 20;
+        public float HP = 20f;
+        public float maxHP = 20f;
+        public Slider HPSlider;
 
-        public void Damage(int damageAmount)
+        public void Damage(float damageAmount)
         {
 
             HP -= damageAmount;
+            HPSlider.Value = HP / maxHP;
 
             if (HP < 0) KnockUnconcious();
         }

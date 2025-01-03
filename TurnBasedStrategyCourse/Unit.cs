@@ -12,6 +12,8 @@ namespace TurnBasedStrategyCourse
         private const int ACTION_POINTS_MAX = 3;
 
         public static event EventHandler OnAnyActionPointsChanged;
+        public static event EventHandler OnAnyUnitSpawned;
+        public static event EventHandler OnAnyUnitUnconcious;
 
         public bool isEnemy;
 
@@ -34,6 +36,9 @@ namespace TurnBasedStrategyCourse
             LevelGrid.Instance.AddUnitAtGridPosition(gridPosition, this);
             characterSheetLogic.OnUnconcious += CharacterSheetLogic_OnUnconcious;
             TurnSystem.Instance.OnTurnChanged += TurnSystem_OnTurnChanged;
+
+           
+            OnAnyUnitSpawned?.Invoke(this, EventArgs.Empty);
         }
         public override void Update()
         {
@@ -41,8 +46,10 @@ namespace TurnBasedStrategyCourse
             GridPosition newGridPosition = LevelGrid.Instance.GetGridPosition(character.Transform.Position);
             if (newGridPosition != gridPosition)
             {
-                LevelGrid.Instance.UnitMovedGridPosition(this, gridPosition, newGridPosition);
+                GridPosition oldGridPosition = gridPosition;
                 gridPosition = newGridPosition;
+                LevelGrid.Instance.UnitMovedGridPosition(this, oldGridPosition, newGridPosition);
+
             }
         }
 
@@ -85,10 +92,9 @@ namespace TurnBasedStrategyCourse
                 OnAnyActionPointsChanged?.Invoke(this, EventArgs.Empty);
             }
 
-
         }
 
-        public void Damage(int damageAmount)
+        public void Damage(float damageAmount)
         {
             characterSheetLogic.Damage(damageAmount);
         }
@@ -97,6 +103,10 @@ namespace TurnBasedStrategyCourse
         {
             LevelGrid.Instance.RemoveUnitAtGridPosition(gridPosition, this);
             Entity.Scene.Entities.Remove(character);
+            character.Dispose();
+
+            OnAnyUnitUnconcious?.Invoke(this, EventArgs.Empty);
+
         }
     }
 }

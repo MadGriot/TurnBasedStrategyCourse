@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using Stride.Core.Mathematics;
 using Stride.Engine;
@@ -7,8 +8,9 @@ namespace TurnBasedStrategyCourse
 {
     public class LevelGrid : SyncScript
     {
-        private GridSystem gridSystem;
+        public GridSystem gridSystem { get; private set; }
 
+        public event EventHandler OnAnyUnitMovedGridPosition;
         public static LevelGrid Instance { get; private set; }
         public Entity Marker;
 
@@ -52,6 +54,8 @@ namespace TurnBasedStrategyCourse
         {
             RemoveUnitAtGridPosition(fromGridPosition, unit);
             AddUnitAtGridPosition(toGridPosition, unit);
+
+            OnAnyUnitMovedGridPosition?.Invoke(this, EventArgs.Empty);
         }
 
         public GridPosition GetGridPosition(Vector3 worldPosition) => gridSystem.GetGridPosition(worldPosition);

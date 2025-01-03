@@ -56,8 +56,6 @@ Hierarchy:
                         unit: ref!! 1fecd12a-7036-48e1-a6cb-43044ff09302
                     a12019f257f949baa687f3b9f1030752: !TurnBasedStrategyCourse.CharacterSheetLogic,TurnBasedStrategyCourse
                         Id: 18360517-00de-4b70-8932-fcd4450c0960
-                        HP: 20
-                    ba4da2b4d7cffba2166d471b1454ad34: !TurnBasedStrategyCourse.UnitWorldUi,TurnBasedStrategyCourse
-                        Id: 3d9c2d44-8f7c-4caf-82d0-f6fec6b9cc12
-                        healthStatus: 56863f4d-ac12-4d0a-b2ac-bf89ae307321:HealthStatus
-                        entity: ref!! 1fecd12a-7036-48e1-a6cb-43044ff09302
+                        HP: 20.0
+                        maxHP: 20.0
+                        HPSlider: null

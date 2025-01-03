@@ -1,6 +1,9 @@
 ﻿using Stride.Core.Mathematics;
 using Stride.Engine;
 using System;
+using System.Linq;
+using System.Collections.Generic;
+using Stride.Core.Extensions;
 
 namespace TurnBasedStrategyCourse
 {
@@ -10,12 +13,14 @@ namespace TurnBasedStrategyCourse
         public int length { get; private set; }
         private float cellSize;
         private GridObject[,] gridObjects;
+        public List<Unit> gridUnits { get; private set; }
         public GridSystem(int width, int length, float cellSize)
         {
             this.width = width;
             this.length = length;
             this.cellSize = cellSize;
             gridObjects = new GridObject[width, length];
+            gridUnits = new List<Unit>();
 
             for (int z = 0; z < length; z++)
             {
@@ -25,6 +30,7 @@ namespace TurnBasedStrategyCourse
                     gridObjects[x, z] = new GridObject(this, gridPosition);
                 }
             }
+            GetAllUnits();
         }
 
         public Vector3 GetWorldPosition(GridPosition gridPosition)
@@ -61,6 +67,20 @@ namespace TurnBasedStrategyCourse
                 gridPosition.z >= 0 && 
                 gridPosition.x < width && 
                 gridPosition.z < length;
+        }
+
+        public List<Unit> GetAllUnits()
+        {
+            gridUnits.Clear();
+            for (int z = 0; z < length; z++)
+            {
+                for (int x = 0; x < width; x++)
+                {
+                    if (!gridObjects[x,z].units.IsNullOrEmpty())
+                        gridUnits.Add(gridObjects[x, z].units.First());
+                }
+            }
+            return gridUnits;
         }
     }
 }

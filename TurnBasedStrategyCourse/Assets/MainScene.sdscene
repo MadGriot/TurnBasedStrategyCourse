@@ -16,6 +16,7 @@ Hierarchy:
         - ref!! 6b4f1127-d05e-4680-ad46-f4cf19d0517d
         - ref!! acc21d17-a5d6-4d6a-a307-a5dc1339deab
         - ref!! d3c91bcf-10f4-44ce-a007-6a315689b222
+        - ref!! 39b920dd-d80d-4d39-abb4-1d6deeb362ec
         - ref!! ed1a9c55-6c4b-49f6-822e-c96ff2100918
         - ref!! c4732337-40eb-4819-89e9-ba199adb3783
         - ref!! 7f894d18-d508-43f3-9f17-0a49bd2886f2
@@ -44,9 +45,21 @@ Hierarchy:
                         actionPointUI: ref!! ed1a9c55-6c4b-49f6-822e-c96ff2100918
                     12776adfc1d958f339bb05d4f52ecbe0: !TurnBasedStrategyCourse.GridSystemVisual,TurnBasedStrategyCourse
                         Id: e2277abd-f646-4309-a809-9e5a5653600a
+                        Priority: 1
+                        gridVisualTypeMaterialList:
+                            3b1318549c1bec5b66580c0191dc788d: 761e8270-84a1-4a4e-9122-1c81171c0acb:Materials/PolishedStone Transparent
+                            c292df17d60a2378d3356a2a4d7a50d5: 6b6df259-2932-43fe-aa68-25a1eb8be8a6:Materials/MaterialBlue Transparent
+                            940e1fa395bbae9f146e50ab1d773700: c3273a61-475b-4e2f-b587-5cc846ed6efe:Materials/MaterialRed Transparent
+                            d1aa465c90383b1d5c68abfd3125a6d3: 772f8604-74ba-416d-a028-c1738a3893bc:Materials/MaterialRed TransparentSoft
                         gridSystemVisualPrefab: b9fd8311-b465-42c3-95c1-b6468c6a611f:Grid
                         blankMaterial: de3a0363-4728-45c7-be47-e3679c3a63e4:Materials/BlankMaterial
                         originalMaterial: null
+                    17b151b05a6403ddcace105ee857bb70: !TurnBasedStrategyCourse.UnitWorldUi,TurnBasedStrategyCourse
+                        Id: 7a826456-220d-4643-aff9-a4b0d773801f
+                        Priority: 3
+                        healthStatus: 56863f4d-ac12-4d0a-b2ac-bf89ae307321:HealthStatus
+                    c30d93a2f60c8f848e0f965f516d6321: !TurnBasedStrategyCourse.UnitManager,TurnBasedStrategyCourse
+                        Id: 65050662-4495-4247-acf7-c63d34352e6d
         -   Entity:
                 Id: 2cccca08-cd42-405e-844d-2e926770d2dd
                 Name: Directional light
@@ -72,6 +85,64 @@ Hierarchy:
                                 ComputeTransmittance: false
                                 BiasParameters: {}
                         Intensity: 20.0
+        -   Entity:
+                Id: 39b920dd-d80d-4d39-abb4-1d6deeb362ec
+                Name*: Unit4
+                Components:
+                    33479119eec0a44cdc64b3b41858808c: !TransformComponent
+                        Id: 926e2a7d-ec9b-427d-9e30-8e2d5c24d7de
+                        Position*: {X: 6.0, Y: 0.0, Z: 2.0}
+                        Rotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                        Scale: {X: 1.0, Y: 1.0, Z: 1.0}
+                        Children: {}
+                    c3ca2892eca9bb6194f5b70b357d8910: !ModelComponent
+                        Id: 6d9e7e47-1502-44a0-9452-801c4bba62aa
+                        Model: f68ea240-695a-4de5-9884-60d77544fcd6:Models/mannequinModel
+                        Materials:
+                            77f24c03940615a287f2d92cb4fbfa45~0: d7a5f36a-ed76-43fd-b323-cf0dc96d668c:Materials/MaterialRed
+                    77e1d54d0a69bae41768bf0e8063c669: !TurnBasedStrategyCourse.MoveAction,TurnBasedStrategyCourse
+                        Id: 29d71f5a-fb7c-406d-b5ac-84ca45b1d2f1
+                        unit: ref!! 39b920dd-d80d-4d39-abb4-1d6deeb362ec
+                        maxMoveDistance: 1
+                    b78c1736a8df1918cbc10efffed658b3: !TurnBasedStrategyCourse.Unit,TurnBasedStrategyCourse
+                        Id: 9c476da8-1236-4df4-998c-9ed8cfdcac1a
+                        Priority: 1
+                        isEnemy: true
+                        character: ref!! 39b920dd-d80d-4d39-abb4-1d6deeb362ec
+                    ac801a9c71bafc9cd401e5520d4288c0: !CharacterComponent
+                        Id: 8600718b-3199-4427-9377-12871d922bed
+                        CollisionGroup: CustomFilter1
+                        CanSleep: false
+                        Restitution: 0.0
+                        Friction: 0.5
+                        RollingFriction: 0.0
+                        CcdMotionThreshold: 0.0
+                        CcdSweptSphereRadius: 0.0
+                        FallSpeed: 10.0
+                        MaxSlope: {Radians: 0.7853982}
+                        JumpSpeed: 5.0
+                        Gravity: {X: 0.0, Y: -10.0, Z: 0.0}
+                        ColliderShapes:
+                            b7acf705f6b69b9e0677ce87badd8d15: !CapsuleColliderShapeDesc
+                                Length: 1.2
+                                Radius: 0.4
+                                LocalOffset: {X: 0.0, Y: 1.0, Z: 0.0}
+                                LocalRotation: {X: 0.0, Y: 0.0, Z: 0.0, W: 1.0}
+                    3e36e27883e965731c5a03c27f062da8: !TurnBasedStrategyCourse.SpinAction,TurnBasedStrategyCourse
+                        Id: a95eaf8a-75d1-4a35-b9ca-7a589a0fdc9e
+                        unit: ref!! 39b920dd-d80d-4d39-abb4-1d6deeb362ec
+                    3071fc0b5b1c560e63a61492397c2e1b: !TurnBasedStrategyCourse.StrikeAction,TurnBasedStrategyCourse
+                        Id: b8ca162b-c4b6-4993-bfe7-1d1af50f8cca
+                        unit: ref!! 39b920dd-d80d-4d39-abb4-1d6deeb362ec
+                    356c25e2299c5da78399822b9ec0e035: !TurnBasedStrategyCourse.CharacterSheetLogic,TurnBasedStrategyCourse
+                        Id: 17cae5b1-754f-43df-a99b-9fae3b332afa
+                        HP: 20.0
+                        maxHP: 20.0
+                        HPSlider: null
+            Base:
+                BasePartAsset: 0e0aa08c-7ac2-49b4-83d9-3101b4ac6e23:UnitEnemy
+                BasePartId: e1c49c6a-3719-4704-8c2d-8cb784d15eb6
+                InstanceId: dbd0f7e0-6c05-497a-8c48-3a51af9d6f91
         -   Entity:
                 Id: 6b4f1127-d05e-4680-ad46-f4cf19d0517d
                 Name: Unit
@@ -122,11 +193,9 @@ Hierarchy:
                         unit: ref!! 6b4f1127-d05e-4680-ad46-f4cf19d0517d
                     a12019f257f949baa687f3b9f1030752: !TurnBasedStrategyCourse.CharacterSheetLogic,TurnBasedStrategyCourse
                         Id: 7d02874a-6af7-473f-bf06-d65882f61f5c
-                        HP: 20
-                    ba4da2b4d7cffba2166d471b1454ad34: !TurnBasedStrategyCourse.UnitWorldUi,TurnBasedStrategyCourse
-                        Id: c6eb4a91-fe38-461f-9799-72378547788f
-                        healthStatus: 56863f4d-ac12-4d0a-b2ac-bf89ae307321:HealthStatus
-                        entity: ref!! 6b4f1127-d05e-4680-ad46-f4cf19d0517d
+                        HP: 20.0
+                        maxHP: 20.0
+                        HPSlider: null
             Base:
                 BasePartAsset: 61bbd4aa-ebd6-4764-b4f1-5b55525ac7d1:Unit
                 BasePartId: 1fecd12a-7036-48e1-a6cb-43044ff09302
@@ -273,11 +342,9 @@ Hierarchy:
                         unit: ref!! acc21d17-a5d6-4d6a-a307-a5dc1339deab
                     a12019f257f949baa687f3b9f1030752: !TurnBasedStrategyCourse.CharacterSheetLogic,TurnBasedStrategyCourse
                         Id: e9084d70-3612-49f7-82f3-2d2320ec039e
-                        HP: 20
-                    ba4da2b4d7cffba2166d471b1454ad34: !TurnBasedStrategyCourse.UnitWorldUi,TurnBasedStrategyCourse
-                        Id: 28be46eb-7462-45ca-85e5-4e71c1e335ca
-                        healthStatus: 56863f4d-ac12-4d0a-b2ac-bf89ae307321:HealthStatus
-                        entity: ref!! acc21d17-a5d6-4d6a-a307-a5dc1339deab
+                        HP: 20.0
+                        maxHP: 20.0
+                        HPSlider: null
                     3e36e27883e965731c5a03c27f062da8: ~(Deleted)
             Base:
                 BasePartAsset: 61bbd4aa-ebd6-4764-b4f1-5b55525ac7d1:Unit
@@ -359,7 +426,9 @@ Hierarchy:
                         unit: ref!! d3c91bcf-10f4-44ce-a007-6a315689b222
                     356c25e2299c5da78399822b9ec0e035: !TurnBasedStrategyCourse.CharacterSheetLogic,TurnBasedStrategyCourse
                         Id: 112868a7-377d-4099-9213-38da5189f6db
-                        HP: 20
+                        HP: 20.0
+                        maxHP: 20.0
+                        HPSlider: null
             Base:
                 BasePartAsset: 0e0aa08c-7ac2-49b4-83d9-3101b4ac6e23:UnitEnemy
                 BasePartId: e1c49c6a-3719-4704-8c2d-8cb784d15eb6

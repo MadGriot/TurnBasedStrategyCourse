@@ -13,11 +13,12 @@ Hierarchy:
                 DependencyProperties: {}
                 BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
                 DrawLayerNumber: 5
+                CanBeHitByUser: false
                 Width: 100.0
                 Height: 10.0
-                HorizontalAlignment: Stretch
-                VerticalAlignment: Bottom
-                Margin: {Left: 11.0, Right: 120.0, Bottom: 94.0}
+                HorizontalAlignment: Left
+                VerticalAlignment: Top
+                Margin: {Top: 61.0}
                 MaximumWidth: 3.4028235E+38
                 MaximumHeight: 3.4028235E+38
                 MaximumDepth: 3.4028235E+38
@@ -51,24 +52,33 @@ Hierarchy:
                 MaximumHeight: 3.4028235E+38
                 MaximumDepth: 3.4028235E+38
                 Children:
-                    b4692e4c07d68f4b6498f445216fa312: !Slider ref!! 0658c2a8-8d2c-451a-aa4c-a9861b6a0534
-                    516fb4d60a1671d86bf313c3e5ad6af6: !TextBlock ref!! fd3e5542-9c4b-41ca-96d8-4f7e8e28246f
+                    e3b2eff271d3506c161071a5bce4bf78: !Canvas ref!! 85e8fa16-8685-4851-aff5-287b54e54687
                 RowDefinitions: {}
                 ColumnDefinitions: {}
                 LayerDefinitions: {}
-        -   UIElement: !TextBlock
-                Id: fd3e5542-9c4b-41ca-96d8-4f7e8e28246f
+        -   UIElement: !Canvas
+                Id: 85e8fa16-8685-4851-aff5-287b54e54687
                 DependencyProperties: {}
                 BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
-                Width: 29.0
-                Height: 23.0
-                VerticalAlignment: Bottom
-                Margin: {Left: 161.0, Right: 141.0, Bottom: 94.0}
-                MaximumWidth: 3.4028235E+38
-                MaximumHeight: 3.4028235E+38
-                MaximumDepth: 3.4028235E+38
-                Text: 3
+                Width: 331.0
+                Height: 107.0
+                VerticalAlignment: Top
+                Margin: {}
+                Name: HealthBarCanvas
+                Children:
+                    f8b8e825f556e3cb06b71b6538901ffb: !Slider ref!! 0658c2a8-8d2c-451a-aa4c-a9861b6a0534
+                    9e94564bd2ccdaf6fb47f3f59180d2d7: !TextBlock ref!! afb937b9-6e4a-4df6-b479-7f95a70d887d
+        -   UIElement: !TextBlock
+                Id: afb937b9-6e4a-4df6-b479-7f95a70d887d
+                DependencyProperties: {}
+                BackgroundColor: {R: 0, G: 0, B: 0, A: 0}
+                Width: 123.0
+                Height: 20.0
+                HorizontalAlignment: Left
+                VerticalAlignment: Top
+                Margin: {Left: 100.0, Top: 61.0}
+                Name: UnitName
+                Text: Unit 1
                 Font: c90f3988-0544-4cbe-993f-13af7d9c23c6:StrideDefaultFont
-                TextSize: 25.0
+                TextSize: 15.0
                 TextColor: {R: 240, G: 240, B: 240, A: 255}
-                TextAlignment: Center

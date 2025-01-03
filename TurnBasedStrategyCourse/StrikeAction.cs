@@ -20,7 +20,7 @@ namespace TurnBasedStrategyCourse
         }
 
         private State state;
-        private int maxStrikeDistance = 2;
+        public int maxStrikeDistance { get; private set; } = 2;
         private float stateTimer;
         private Unit targetUnit;
         private bool canStrike;
@@ -69,7 +69,7 @@ namespace TurnBasedStrategyCourse
 
         private void Strike()
         {
-            targetUnit.Damage(7);
+            targetUnit.Damage(7f);
         }
 
         public override List<GridPosition> GetValidActionGridPositionList()

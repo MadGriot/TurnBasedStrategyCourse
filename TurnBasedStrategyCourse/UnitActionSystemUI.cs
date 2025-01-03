@@ -72,6 +72,7 @@ namespace TurnBasedStrategyCourse
             foreach (Entity entity in ButtonContainer)
             {
                 Entity.Scene.Entities.Remove(entity);
+                entity.Dispose();
             }
             incrementer = 0;
         }

@@ -57,4 +57,6 @@ Hierarchy:
                         unit: ref!! e1c49c6a-3719-4704-8c2d-8cb784d15eb6
                     356c25e2299c5da78399822b9ec0e035: !TurnBasedStrategyCourse.CharacterSheetLogic,TurnBasedStrategyCourse
                         Id: 232d9541-53aa-49ba-a3fc-003ac89f01d1
-                        HP: 20
+                        HP: 20.0
+                        maxHP: 20.0
+                        HPSlider: null

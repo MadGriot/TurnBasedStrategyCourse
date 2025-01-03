@@ -95,6 +95,7 @@ namespace TurnBasedStrategyCourse
                     selectedAction = unit.moveAction;
                     
                     OnSelectedUnitChanged?.Invoke(this, EventArgs.Empty);
+                    GridSystemVisual.Instance.UpdateGridVisual();
                     return true;
                 }
             }

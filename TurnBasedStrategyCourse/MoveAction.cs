@@ -51,7 +51,7 @@ namespace TurnBasedStrategyCourse
         public override List<GridPosition> GetValidActionGridPositionList()
         {
             List<GridPosition> validGridPositionList = new List<GridPosition>();
-            GridPosition unitGridPosition = unitComponent.gridPosition;
+            GridPosition unitGridPosition = unit.Get<Unit>().gridPosition;
             int accum = 0;
             for (int x = -maxMoveDistance; x <= maxMoveDistance; x++)
             {
