@@ -74,6 +74,11 @@ namespace TurnBasedStrategyCourse
 
         public override List<GridPosition> GetValidActionGridPositionList()
         {
+            GridPosition unitGridPosition = unit.Get<Unit>().gridPosition;
+            return GetValidActionGridPositionList(unitGridPosition);
+        }
+        public List<GridPosition> GetValidActionGridPositionList(GridPosition gridPosition)
+        {
             List<GridPosition> validGridPositionList = new List<GridPosition>();
             GridPosition unitGridPosition = unit.Get<Unit>().gridPosition;
             for (int x = -maxStrikeDistance; x <= maxStrikeDistance; x++)
@@ -128,5 +133,21 @@ namespace TurnBasedStrategyCourse
             canStrike = true;
         }
 
+        public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
+        {
+            Unit targetUnit = LevelGrid.Instance.GetAnyUnitAtGridPosition(gridPosition);
+
+            return new EnemyAIAction
+            {
+                gridPosition = gridPosition,
+                actionValue = 100 + Convert.ToInt32((1f - targetUnit.
+                    characterSheetLogic.HP/targetUnit.characterSheetLogic.maxHP) *100f)
+            };
+        }
+
+        public int GetTargetCountAtPosition(GridPosition gridPosition)
+        {
+            return GetValidActionGridPositionList(gridPosition).Count;
+        }
     }
 }

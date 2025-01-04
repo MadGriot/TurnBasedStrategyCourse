@@ -30,8 +30,8 @@ namespace TurnBasedStrategyCourse
             DebugText.Print($"{units.Count}", new Int2(600, 50));
         }
         private void CreateHeathBars()
-        {     
-            units = LevelGrid.Instance.gridSystem.GetAllUnits();
+        {
+            units = UnitManager.Instance.friendlyUnitList;
             foreach (Unit entity in units)
             {
                 page.Get<UIComponent>().Page.RootElement.FindVisualChildOfType<TextBlock>().Text = $"{entity.character.Name}";

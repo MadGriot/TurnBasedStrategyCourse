@@ -7,19 +7,20 @@ using Stride.Core.Extensions;
 
 namespace TurnBasedStrategyCourse
 {
-    public class GridSystem
+    public class GridSystem<TGridObject>
     {
         public int width { get; private set; }
         public int length { get; private set; }
         private float cellSize;
-        private GridObject[,] gridObjects;
+        private TGridObject[,] gridObjects;
         public List<Unit> gridUnits { get; private set; }
-        public GridSystem(int width, int length, float cellSize)
+        public GridSystem(int width, int length, float cellSize, 
+            Func<GridSystem<TGridObject>, GridPosition, TGridObject> createGridObject)
         {
             this.width = width;
             this.length = length;
             this.cellSize = cellSize;
-            gridObjects = new GridObject[width, length];
+            gridObjects = new TGridObject[width, length];
             gridUnits = new List<Unit>();
 
             for (int z = 0; z < length; z++)
@@ -27,10 +28,9 @@ namespace TurnBasedStrategyCourse
                 for (int x = 0; x < width; x++)
                 {
                     GridPosition gridPosition = new GridPosition(x, z);
-                    gridObjects[x, z] = new GridObject(this, gridPosition);
+                    gridObjects[x, z] = createGridObject(this, gridPosition);
                 }
             }
-            GetAllUnits();
         }
 
         public Vector3 GetWorldPosition(GridPosition gridPosition)
@@ -57,7 +57,7 @@ namespace TurnBasedStrategyCourse
             }
 
         }
-        public GridObject GetGridObject(GridPosition gridPosition)
+        public TGridObject GetTGridObject(GridPosition gridPosition)
         {
             return gridObjects[gridPosition.x, gridPosition.z];
         }
@@ -69,18 +69,5 @@ namespace TurnBasedStrategyCourse
                 gridPosition.z < length;
         }
 
-        public List<Unit> GetAllUnits()
-        {
-            gridUnits.Clear();
-            for (int z = 0; z < length; z++)
-            {
-                for (int x = 0; x < width; x++)
-                {
-                    if (!gridObjects[x,z].units.IsNullOrEmpty())
-                        gridUnits.Add(gridObjects[x, z].units.First());
-                }
-            }
-            return gridUnits;
-        }
     }
 }

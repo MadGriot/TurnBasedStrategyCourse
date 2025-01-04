@@ -60,6 +60,8 @@ Hierarchy:
                         healthStatus: 56863f4d-ac12-4d0a-b2ac-bf89ae307321:HealthStatus
                     c30d93a2f60c8f848e0f965f516d6321: !TurnBasedStrategyCourse.UnitManager,TurnBasedStrategyCourse
                         Id: 65050662-4495-4247-acf7-c63d34352e6d
+                    82b0df2d4d7a1060ec25b629fe2c6d85: !TurnBasedStrategyCourse.Pathfinding,TurnBasedStrategyCourse
+                        Id: a1961a40-c3e0-4fcd-91c5-7883cc03d0ae
         -   Entity:
                 Id: 2cccca08-cd42-405e-844d-2e926770d2dd
                 Name: Directional light

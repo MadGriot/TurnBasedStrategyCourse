@@ -82,5 +82,15 @@ namespace TurnBasedStrategyCourse
             }
             return validGridPositionList;
         }
+
+        public override EnemyAIAction GetEnemyAIAction(GridPosition gridPosition)
+        {
+            int targetCountAtGridPosition = unit.Get<BaseAction>().strikeAction.GetTargetCountAtPosition(gridPosition);
+            return new EnemyAIAction
+            {
+                gridPosition = gridPosition,
+                actionValue = targetCountAtGridPosition * 10,
+            };
+        }
     }
 }

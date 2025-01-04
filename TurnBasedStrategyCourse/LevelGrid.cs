@@ -8,7 +8,7 @@ namespace TurnBasedStrategyCourse
 {
     public class LevelGrid : SyncScript
     {
-        public GridSystem gridSystem { get; private set; }
+        public GridSystem<GridObject> gridSystem { get; private set; }
 
         public event EventHandler OnAnyUnitMovedGridPosition;
         public static LevelGrid Instance { get; private set; }
@@ -23,7 +23,8 @@ namespace TurnBasedStrategyCourse
                 return;
             }
             Instance = this;
-            gridSystem = new GridSystem(10, 10, 2f);
+            gridSystem = new GridSystem<GridObject>(10, 10, 2f, 
+                (GridSystem<GridObject> g, GridPosition gridPosition) => new GridObject(g, gridPosition));
             gridSystem.CreateDebugObjects(Marker);
         }
 
@@ -34,19 +35,19 @@ namespace TurnBasedStrategyCourse
 
         public void AddUnitAtGridPosition(GridPosition gridPosition, Unit unit)
         {
-            GridObject gridObject = gridSystem.GetGridObject(gridPosition);
+            GridObject gridObject = gridSystem.GetTGridObject(gridPosition);
             gridObject.units.Add(unit);
         }
 
         public List<Unit> GetUnitsAtGridPosition(GridPosition gridPosition)
         {
-            GridObject gridObject = gridSystem.GetGridObject(gridPosition);
+            GridObject gridObject = gridSystem.GetTGridObject(gridPosition);
             return gridObject.units;
         }
 
         public void RemoveUnitAtGridPosition(GridPosition gridPosition, Unit unit)
         {
-            GridObject gridObject = gridSystem.GetGridObject(gridPosition);
+            GridObject gridObject = gridSystem.GetTGridObject(gridPosition);
             gridObject.units.Remove(unit);
         }
 
@@ -66,13 +67,13 @@ namespace TurnBasedStrategyCourse
 
         public bool HasAnyUnitOnGridPosition(GridPosition gridPosition)
         {
-            GridObject gridObject = gridSystem.GetGridObject(gridPosition);
+            GridObject gridObject = gridSystem.GetTGridObject(gridPosition);
             return gridObject.HasAnyUnit();
         }
 
         public Unit GetAnyUnitAtGridPosition(GridPosition gridPosition)
         {
-            GridObject gridObject = gridSystem.GetGridObject(gridPosition);
+            GridObject gridObject = gridSystem.GetTGridObject(gridPosition);
             return gridObject.units.First();
         }
     }

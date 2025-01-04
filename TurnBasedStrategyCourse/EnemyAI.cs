@@ -78,19 +78,35 @@ namespace TurnBasedStrategyCourse
 
         private bool TryTakeEnemyAIAction(Unit enemyUnit, Action onEnemyAIActionComplete)
         {
-            SpinAction spinAction = enemyUnit.spinAction;
-
-                GridPosition actionGridPosition = enemyUnit.gridPosition;
-
-            if (spinAction.IsValidActionGridPosition(actionGridPosition))
+            EnemyAIAction bestEnemyAIAction = null;
+            BaseAction bestBaseAction = null;
+            foreach (BaseAction baseAction in enemyUnit.baseActionList)
             {
-                if (enemyUnit.TrySpendActionPoints(spinAction))
+                if (!enemyUnit.CanSpendActionPoints(baseAction))
                 {
-                    spinAction.TakeAction(actionGridPosition, onEnemyAIActionComplete);
-                    return true;
+                    continue;
+                }
+                if (bestEnemyAIAction == null)
+                {
+                    bestEnemyAIAction = baseAction.GetBestEnemyAIAction();
+                    bestBaseAction = baseAction;
+                }
+                else
+                {
+                    EnemyAIAction testEnemyAIAction = baseAction.GetBestEnemyAIAction();
+                    if (testEnemyAIAction != null && testEnemyAIAction.actionValue > bestEnemyAIAction.actionValue)
+                    {
+                        bestEnemyAIAction = baseAction.GetBestEnemyAIAction();
+                        bestBaseAction = baseAction;
+                    }
                 }
             }
-            return false;
+            if (bestEnemyAIAction != null && enemyUnit.TrySpendActionPoints(bestBaseAction))
+            {
+                bestBaseAction.TakeAction(bestEnemyAIAction.gridPosition, onEnemyAIActionComplete);
+                return true;
+            }
+            else return false;
         }
     }
 
